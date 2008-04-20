@@ -23,6 +23,7 @@
 * OTHER DEALINGS IN THE SOFTWARE.
 */
 package com.warptube.lhasa {
+	import com.warptube.lhasa.UIElement;
 	import com.warptube.lhasa.events.UIElementEvent;
 	
 	import flash.display.DisplayObject;
