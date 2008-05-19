@@ -22,28 +22,28 @@
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package com.warptube.lhasa {
+package com.paulcoyle.lhasa.layout_delegates {
+  import com.paulcoyle.lhasa.LayoutContainer;
+  import com.paulcoyle.lhasa.LayoutElement;
+  import com.paulcoyle.lhasa.types.Align;
+  
 	/**
-	* HorizontalBox
-	* Arranges its UIElement children horizontally.
+	* HorizontalLayoutDelegate
+	* Arranges its LayoutElement children horizontally.
 	*
 	* @author Paul Coyle <paul.b.coyle@gmail.com>
 	*/
-	public class HorizontalBox extends UIContainer {
-		public function HorizontalBox() { super() }
-		
-		// PROTECTED
+	public class HorizontalLayoutDelegate implements ILayoutDelegate  {
+		// PUBLIC
 		/**
 		* Handles updating when the element changes size.
 		*/
-		override protected function update():void {
-			super.update();
-			
+		public function perform_layout(container:LayoutContainer):void {
 			// Find the total fixed width and the total relative width
-			var children:Array = get_ui_element_children();
-			var total_fixed_width:Number = horizontal_spacing * (children.length - 1);
+			var children:Array = container.layout_element_children;
+			var total_fixed_width:Number = container.horizontal_spacing * (children.length - 1);
 			var total_relative_width:Number = 0;// Sum of scalars
-			var child:UIElement;
+			var child:LayoutElement;
 			for each (child in children) {
 				if (child.defined_width_fixed) total_fixed_width += child.defined_width;
 				else total_relative_width += child.defined_width;
@@ -51,61 +51,59 @@ package com.warptube.lhasa {
 			
 			// Is there any remaining relative width?
 			var relative_width:Number = 0;// In actual pixels, what remains after fixed values
-			if (padded_width > total_fixed_width) relative_width = padded_width - total_fixed_width;
+			if (container.padded_width > total_fixed_width) relative_width = container.padded_width - total_fixed_width;
 			
 			// Resize and position children
-			var x_offset:Number = padded_offset.x;
-			var total_width:Number = horizontal_spacing * (children.length - 1);
+			var x_offset:Number = container.padded_offset.x;
+			var total_width:Number = container.horizontal_spacing * (children.length - 1);
 			var max_height:Number = 0;
 			for each (child in children) {
 				// If the child's width is relative calculate it as a percent
 				// of the total divided by all relative elements and set it,
 				// otherwise set its defined width
-				if (!child.defined_width_fixed) child.layout_width = relative_width * (child.defined_width / total_relative_width);
-				else child.layout_width = child.defined_width;
+				if (!child.defined_width_fixed) child.total_width = relative_width * (child.defined_width / total_relative_width);
+				else child.total_width = child.defined_width;
 				
 				// Add to the total width calculation
-				total_width += child.layout_width;
+				total_width += child.total_width;
 				
 				// If the child's height is relative calculate it as a percent
 				// of the whole of this container's height
-				if (!child.defined_height_fixed) child.layout_height = padded_height * child.defined_height;
-				else child.layout_height = child.defined_height;
+				if (!child.defined_height_fixed) child.total_height = container.padded_height * child.defined_height;
+				else child.total_height = child.defined_height;
 				
 				// Set the maxmimum height value
-				max_height = Math.max(max_height, child.layout_height);
+				max_height = Math.max(max_height, child.total_height);
 				
 				// Position the child and increment the horizontal offset tally
-				child.x = child.rounding_method(x_offset);
-				x_offset += child.layout_width + horizontal_spacing;
+				child.x = x_offset;
+				x_offset += child.total_width + container.horizontal_spacing;
 				
 				// Align the child according to its alignment settings
 				switch (child.align_vertical) {
 					case Align.TOP:
-						child.y = child.rounding_method(padded_offset.y);
+						child.y = container.padded_offset.y;
 						break;
 					
 					case Align.MIDDLE:
-						child.y = child.rounding_method(padded_offset.y + (padded_height / 2) - (child.layout_height / 2));
+						child.y = container.padded_offset.y + (container.padded_height / 2) - (child.total_height / 2);
 						break;
 					
 					case Align.BOTTOM:
-						child.y = child.rounding_method(layout_height - child.layout_height - margins.bottom - padding.bottom);
+						child.y = container.total_height - child.total_height - container.margin.bottom - container.padding.bottom;
 						break;
 				}
-				
-				child.render_if_pending();
 			}
 			
-			_content_width = total_width;
-			_content_height = max_height;
+			container.content_width = total_width;
+			container.content_height = max_height;
 			
-			if (size_to_content_width) {
-				defined_width = rounding_method(_content_width + padding.horizontal + margins.horizontal);
+			if (container.size_to_content_width) {
+				container.defined_width = container.content_width + container.padding.horizontal + container.margin.horizontal;
 			}
 			
-			if (size_to_content_height) {
-				defined_height = rounding_method(_content_height + padding.vertical + margins.vertical);
+			if (container.size_to_content_height) {
+				container.defined_height = container.content_height + container.padding.vertical + container.margin.vertical;
 			}
 		}
 	}

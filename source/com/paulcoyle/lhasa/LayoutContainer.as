@@ -17,91 +17,94 @@
 * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+* HOLDERS BE LIABLE FOR ANY CL
+* AIM, DAMAGES OR OTHER LIABILITY,
+* WHETHER IN AN ACTION OF CONTRACT, TORT OR
+*  OTHERWISE, ARISING
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package com.warptube.lhasa {
-	import com.warptube.lhasa.UIElement;
-	import com.warptube.lhasa.events.UIElementEvent;
+package com.paulcoyle.lhasa {
+	import com.paulcoyle.lhasa.events.LayoutElementEvent;
+	import com.paulcoyle.lhasa.layout_delegates.ILayoutDelegate;
 	
 	import flash.display.DisplayObject;
 	
 	/**
-	* UIContainer
-	* A UIContainer is responsible for any children within it that subclass
-	* UIElement and their positioning and sizing.
+	* LayoutContainer
+	* A LayoutContainer is responsible for any children within it that subclass
+	* LayoutElement and their positioning and sizing.
 	*
 	* @author Paul Coyle <paul.b.coyle@gmail.com>
 	*/
-	public class UIContainer extends UIElement {
+	public class LayoutContainer extends LayoutElement {
 		private var _size_to_content_width:Boolean;
 		private var _size_to_content_height:Boolean;
 		protected var _content_width:Number;
 		protected var _content_height:Number;
 		private var _horizontal_spacing:Number = 0;
 		private var _vertical_spacing:Number = 0;
+		private var _layout_delegate:ILayoutDelegate;
 		
-		public function UIContainer() {
+		public function LayoutContainer(layout_delegate:ILayoutDelegate) {
 			super();
-			size_to_content_height = true;// Mimicks the HTML Box Model - containers grow to fill horizontally but compress to their content vertically
+			_layout_delegate = layout_delegate;
 		}
 		
 		// PUBLIC
 		/**
-		* Modification of addChild to check for UIElement additions and to
+		* Modification of addChild to check for LayoutElement additions and to
 		* update when they are added.
 		*/
 		override public function addChild(child:DisplayObject):DisplayObject {
 			super.addChild(child);
 			
-			if (child is UIElement) {
-				child.addEventListener(UIElementEvent.DEFINITION_INVALIDATED, on_ui_element_definition_invalidated, false, 0, true);
-				// TODO: Figure out why this does some odd things and correct them so we don't update when many children are added
-				render_next = true;
-				//update();
+			if (child is LayoutElement) {
+				child.addEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				  on_layout_element_definition_invalidated, false, 0, true);
+				
+				update_next();
 			}
 			
 			return child;
 		}
 		
 		/**
-		* Modification of addChildAt to check for UIElement additions and to
+		* Modification of addChildAt to check for LayoutElement additions and to
 		* update when they are added.
 		*/
 		override public function addChildAt(child:DisplayObject, index:int):DisplayObject {
 			super.addChildAt(child, index);
 			
-			if (child is UIElement) {
-				child.addEventListener(UIElementEvent.DEFINITION_INVALIDATED, on_ui_element_definition_invalidated, false, 0, true);
-				// TODO: Figure out why this does some odd things and correct them so we don't update when many children are added
-				//render_next = true;
-				update();
+			if (child is LayoutElement) {
+				child.addEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				  on_layout_element_definition_invalidated, false, 0, true);
+				
+				update_next();
 			}
 			
 			return child;
 		}
 		
 		/**
-		* Modification of removeChild to check for UIElement additions and to
+		* Modification of removeChild to check for LayoutElement additions and to
 		* update when they are removed.
 		*/
 		override public function removeChild(child:DisplayObject):DisplayObject {
 			super.removeChild(child);
 			
-			if (child is UIElement) {
-				child.removeEventListener(UIElementEvent.DEFINITION_INVALIDATED, on_ui_element_definition_invalidated);
-				// TODO: Figure out why this does some odd things and correct them so we don't update when many children are added
-				render_next = true;
-				//update();
+			if (child is LayoutElement) {
+				child.removeEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				  on_layout_element_definition_invalidated);
+				
+				update_next();
 			}
 			
 			return child;
 		}
 		
 		/**
-		* Modification of removeChildAt to check for UIElement additions and to
+		* Modification of removeChildAt to check for LayoutElement additions and to
 		* update when they are removed.
 		*/
 		override public function removeChildAt(index:int):DisplayObject {
@@ -109,14 +112,25 @@ package com.warptube.lhasa {
 		  
 			super.removeChildAt(index);
 			
-			if (child is UIElement) {
-				child.removeEventListener(UIElementEvent.DEFINITION_INVALIDATED, on_ui_element_definition_invalidated);
-				// TODO: Figure out why this does some odd things and correct them so we don't update when many children are added
-				render_next = true;
-				//update();
+			if (child is LayoutElement) {
+				child.removeEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				  on_layout_element_definition_invalidated);
+				
+				update_next();
 			}
 			
 			return child;
+		}
+		
+		/**
+		* Gets and sets the layout_delegate property.
+		*/
+		public function get layout_delegate():ILayoutDelegate { return _layout_delegate }
+		public function set layout_delegate(value:ILayoutDelegate):void {
+		  if (value != _layout_delegate) {
+		    _layout_delegate = value;
+		    update();
+	    }
 		}
 		
 		/**
@@ -126,7 +140,7 @@ package com.warptube.lhasa {
 		public function set size_to_content_width(value:Boolean):void {
 			if (value != _size_to_content_width) {
 				_size_to_content_width = defined_width_fixed = value;
-				render_next = true;
+				update_next();
 			}
 		}
 		
@@ -137,7 +151,7 @@ package com.warptube.lhasa {
 		public function set size_to_content_height(value:Boolean):void {
 			if (value != _size_to_content_height) {
 				_size_to_content_height = defined_height_fixed = value;
-				render_next = true;
+				update_next();
 			}
 		}
 		
@@ -145,11 +159,13 @@ package com.warptube.lhasa {
 		* Gets the content_width property.
 		*/
 		public function get content_width():Number { return _content_width }
+		public function set content_width(value:Number):void { _content_width = value }
 		
 		/**
 		* Gets the content_height property.
 		*/
 		public function get content_height():Number { return _content_height }
+		public function set content_height(value:Number):void { _content_height = value }
 		
 		/**
 		* Gets and sets the horizontal_spacing property.
@@ -158,7 +174,7 @@ package com.warptube.lhasa {
 		public function set horizontal_spacing(value:Number):void {
 			if (value != _horizontal_spacing) {
 				_horizontal_spacing = value;
-				render_next = true;
+				update_next();
 			}
 		}
 		
@@ -169,32 +185,41 @@ package com.warptube.lhasa {
 		public function set vertical_spacing(value:Number):void {
 			if (value != _vertical_spacing) {
 				_vertical_spacing = value;
-				render_next = true;
+				update_next();
 			}
 		}
 		
-		// PROTECTED
 		/**
-		* Returns an array of all the children that subclass UIElement.
+		* Returns an array of all the children that subclass LayoutElement.
 		*/
-		protected function get_ui_element_children():Array {
+		public function get layout_element_children():Array {
 			var output:Array = new Array();
 			var c:uint = 0;
 			var maxc:uint = numChildren;
 			var child:DisplayObject;
 			while (c < maxc) {
 				child = getChildAt(c);
-				if (child is UIElement) output.push(child);
+				if (child is LayoutElement) output.push(child);
 				c += 1;
 			}
 			
 			return output;
 		}
 		
+		// PROTECTED
+		/**
+		* Updates this element then invokes the layout delegate to operate on the
+		* children.
+		*/
+		override protected function update():void {
+		  super.update();
+		  _layout_delegate.perform_layout(this);
+		}
+		
 		// PRIVATE
 		/**
 		* Handles layout updates by updating the layout.
 		*/
-		private function on_ui_element_definition_invalidated(event:UIElementEvent):void { update() }
+		private function on_layout_element_definition_invalidated(event:LayoutElementEvent):void { update_next() }
 	}
 }

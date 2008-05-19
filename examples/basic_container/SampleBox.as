@@ -22,18 +22,36 @@
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package com.warptube.lhasa.events {
-	import flash.events.Event;
-
-	/**
-	* UIElementEvent
-	* Describes events occuring on UIElements.
-	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
-	*/
-	public class UIElementEvent extends Event {
-		public static const DEFINITION_INVALIDATED:String = 'definition invalidated';
-		public static const UPDATED:String = 'ui updated';
-		public function UIElementEvent(type:String) { super(type) }
-	}
+package {
+  import com.paulcoyle.lhasa.LayoutElement;
+  
+  /**
+  * SampleBox
+  * An example layout element.
+  *
+  * @author Paul Coyle <paul.b.coyle@gmail.com>
+  */
+  public class SampleBox extends LayoutElement {
+    public function SampleBox() {
+      super();
+      
+      margin.all = 10;
+      padding.all = 10;
+    }
+    
+    // PROTECTED
+    /**
+    * Updates this element.
+    */
+    override protected function update():void {
+      super.update();
+      graphics.clear();
+      graphics.beginFill(0xff0000, 1);
+      graphics.drawRect(0, 0, total_width, total_height);
+      graphics.beginFill(0x00ff00, 1);
+      graphics.drawRect(inner_offset.x, inner_offset.y, inner_width, inner_height);
+      graphics.beginFill(0x0000ff, 1);
+      graphics.drawRect(padded_offset.x, padded_offset.y, padded_width, padded_height);
+    }
+  }
 }

@@ -22,18 +22,16 @@
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package com.warptube.lhasa {
-	/**
-	* Align
-	* Defines alignment settings.
-	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
-	*/
-	public class Align {
-		public static const MIDDLE:uint = 1;
-		public static const LEFT:uint = 0;
-		public static const RIGHT:uint = 2;
-		public static const TOP:uint = 0;
-		public static const BOTTOM:uint = 2;
-	}
+package com.paulcoyle.lhasa.layout_delegates {
+  import com.paulcoyle.lhasa.LayoutContainer;
+  
+  /**
+  * ILayoutDelegate
+  * Interface for layout delegates.
+  *
+  * @author Paul Coyle <paul.b.coyle@gmail.com>
+  */
+  public interface ILayoutDelegate {
+    function perform_layout(container:LayoutContainer):void;
+  }
 }

@@ -22,20 +22,20 @@
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package com.warptube.lhasa {
+package com.paulcoyle.lhasa.types {
 	/**
-	* BoxValues
+	* Box
 	* Describes the values for the four sides of an element.
 	*
 	* @author Paul Coyle <paul.b.coyle@gmail.com>
 	*/
-	public class BoxValues {
+	public class Box {
 		private var _top:Number;
 		private var _right:Number;
 		private var _bottom:Number;
 		private var _left:Number;
 		
-		public function BoxValues(top:Number = 0, right:Number = 0, bottom:Number = 0, left:Number = 0) {
+		public function Box(top:Number = 0, right:Number = 0, bottom:Number = 0, left:Number = 0) {
 			_top = top;
 			_right = right;
 			_bottom = bottom;
