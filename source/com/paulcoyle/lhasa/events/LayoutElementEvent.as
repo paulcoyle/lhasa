@@ -26,14 +26,26 @@ package com.paulcoyle.lhasa.events {
 	import flash.events.Event;
 
 	/**
-	* LayoutElementEvent
 	* Describes events occuring on LayoutElements.
 	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
+	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
 	*/
 	public class LayoutElementEvent extends Event {
-		public static const DEFINITION_INVALIDATED:String = 'definition invalidated';
-		public static const UPDATED:String = 'ui updated';
+	  /**
+	  * Dispatched when a LayoutElement's measurement values are changed in some
+	  * way that would affects its layout within a container.
+	  *
+	  * @eventType com.paulcoyle.lhasa.events.LayoutElementEvent.INVALIDATED
+	  */
+		public static const INVALIDATED:String = 'layout invalidated';
+		
+		/**
+		* Dispatched when a LayoutElement has been internally updated.
+		*
+		* @eventType com.paulcoyle.lhasa.events.LayoutElementEvent.UPDATED
+		*/
+		public static const UPDATED:String = 'layout updated';
+		
 		public function LayoutElementEvent(type:String) { super(type) }
 	}
 }

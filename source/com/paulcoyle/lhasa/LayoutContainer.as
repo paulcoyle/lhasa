@@ -31,21 +31,32 @@ package com.paulcoyle.lhasa {
 	import flash.display.DisplayObject;
 	
 	/**
-	* LayoutContainer
 	* A LayoutContainer is responsible for any children within it that subclass
 	* LayoutElement and their positioning and sizing.
 	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
+	* <p>LayoutContainers delegate the actual task of performing the layout
+	* calculations to their <code>layout_delegate</code>.  Layout delegates can
+	* be changed at run-time.</p>
+	*
+	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
 	*/
 	public class LayoutContainer extends LayoutElement {
 		private var _size_to_content_width:Boolean;
 		private var _size_to_content_height:Boolean;
-		protected var _content_width:Number;
-		protected var _content_height:Number;
+		private var _content_width:Number;
+		private var _content_height:Number;
 		private var _horizontal_spacing:Number = 0;
 		private var _vertical_spacing:Number = 0;
 		private var _layout_delegate:ILayoutDelegate;
 		
+		/**
+		* Creates a new LayoutContainer.
+		* 
+		* @param layout_delegate An instance of a class that implements the
+		* <code>ILayoutDelegate</code> interface.
+		* 
+		* @see com.paulcoyle.lhasa.layout_delegates.ILayoutDelegate ILayoutDelegate
+		*/
 		public function LayoutContainer(layout_delegate:ILayoutDelegate) {
 			super();
 			_layout_delegate = layout_delegate;
@@ -55,12 +66,14 @@ package com.paulcoyle.lhasa {
 		/**
 		* Modification of addChild to check for LayoutElement additions and to
 		* update when they are added.
+		* 
+		* @private
 		*/
 		override public function addChild(child:DisplayObject):DisplayObject {
 			super.addChild(child);
 			
 			if (child is LayoutElement) {
-				child.addEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				child.addEventListener(LayoutElementEvent.INVALIDATED,
 				  on_layout_element_definition_invalidated, false, 0, true);
 				
 				update_next();
@@ -72,12 +85,14 @@ package com.paulcoyle.lhasa {
 		/**
 		* Modification of addChildAt to check for LayoutElement additions and to
 		* update when they are added.
+		* 
+		* @private
 		*/
 		override public function addChildAt(child:DisplayObject, index:int):DisplayObject {
 			super.addChildAt(child, index);
 			
 			if (child is LayoutElement) {
-				child.addEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				child.addEventListener(LayoutElementEvent.INVALIDATED,
 				  on_layout_element_definition_invalidated, false, 0, true);
 				
 				update_next();
@@ -89,12 +104,14 @@ package com.paulcoyle.lhasa {
 		/**
 		* Modification of removeChild to check for LayoutElement additions and to
 		* update when they are removed.
+		* 
+		* @private
 		*/
 		override public function removeChild(child:DisplayObject):DisplayObject {
 			super.removeChild(child);
 			
 			if (child is LayoutElement) {
-				child.removeEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				child.removeEventListener(LayoutElementEvent.INVALIDATED,
 				  on_layout_element_definition_invalidated);
 				
 				update_next();
@@ -106,6 +123,8 @@ package com.paulcoyle.lhasa {
 		/**
 		* Modification of removeChildAt to check for LayoutElement additions and to
 		* update when they are removed.
+		* 
+		* @private
 		*/
 		override public function removeChildAt(index:int):DisplayObject {
 		  var child:DisplayObject = getChildAt(index);
@@ -113,7 +132,7 @@ package com.paulcoyle.lhasa {
 			super.removeChildAt(index);
 			
 			if (child is LayoutElement) {
-				child.removeEventListener(LayoutElementEvent.DEFINITION_INVALIDATED,
+				child.removeEventListener(LayoutElementEvent.INVALIDATED,
 				  on_layout_element_definition_invalidated);
 				
 				update_next();
@@ -122,10 +141,21 @@ package com.paulcoyle.lhasa {
 			return child;
 		}
 		
+		// TODO: Override the rest of the child manipulation methods that cause
+		//       reordering or any change in the display order of children.
+		
 		/**
-		* Gets and sets the layout_delegate property.
+		* The layout delegate responsible for this container.
+		* 
+		* @see com.paulcoyle.lhasa.layout_delegates.ILayoutDelegate ILayoutDelegate
+		* @see com.paulcoyle.lhasa.layout_delegates.FreeLayoutDelegate FreeLayoutDelegate
+		* @see com.paulcoyle.lhasa.layout_delegates.HorizontalLayoutDelegate HorizontalLayoutDelegate
+		* @see com.paulcoyle.lhasa.layout_delegates.VerticalLayoutDelegate VerticalLayoutDelegate
 		*/
 		public function get layout_delegate():ILayoutDelegate { return _layout_delegate }
+		/**
+		* @private
+		*/
 		public function set layout_delegate(value:ILayoutDelegate):void {
 		  if (value != _layout_delegate) {
 		    _layout_delegate = value;
@@ -134,9 +164,15 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Gets and sets the size_to_content_width property.
+		* Indicates whether or not this container should resize itself to match the
+		* width of its contained elements.
+		*
+		* @default false
 		*/
 		public function get size_to_content_width():Boolean { return _size_to_content_width }
+		/**
+		* @private
+		*/
 		public function set size_to_content_width(value:Boolean):void {
 			if (value != _size_to_content_width) {
 				_size_to_content_width = defined_width_fixed = value;
@@ -145,9 +181,15 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Gets and sets the size_to_content_height property.
+		* Indicates whether or not this container should resize itself to match the
+		* height of its contained elements.
+		*
+		* @default false
 		*/
 		public function get size_to_content_height():Boolean { return _size_to_content_height }
+		/**
+		* @private
+		*/
 		public function set size_to_content_height(value:Boolean):void {
 			if (value != _size_to_content_height) {
 				_size_to_content_height = defined_height_fixed = value;
@@ -156,21 +198,32 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Gets the content_width property.
+		* The calculated width of the contained elements.
 		*/
 		public function get content_width():Number { return _content_width }
+		/**
+		* @private
+		*/
 		public function set content_width(value:Number):void { _content_width = value }
 		
 		/**
-		* Gets the content_height property.
+		* The calculated height of the contained elements.
 		*/
 		public function get content_height():Number { return _content_height }
+		/**
+		* @private
+		*/
 		public function set content_height(value:Number):void { _content_height = value }
 		
 		/**
-		* Gets and sets the horizontal_spacing property.
+		* The amount of space in pixels to be placed horizontally between elements.
+		*
+		* @default 0
 		*/
 		public function get horizontal_spacing():Number { return _horizontal_spacing }
+		/**
+		* @private
+		*/
 		public function set horizontal_spacing(value:Number):void {
 			if (value != _horizontal_spacing) {
 				_horizontal_spacing = value;
@@ -179,9 +232,14 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Gets and sets the vertical_spacing property.
+		* The amount of space in pixels to be placed vertically between elements.
+		*
+		* @default 0
 		*/
 		public function get vertical_spacing():Number { return _vertical_spacing }
+		/**
+		* @private
+		*/
 		public function set vertical_spacing(value:Number):void {
 			if (value != _vertical_spacing) {
 				_vertical_spacing = value;
@@ -190,7 +248,10 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Returns an array of all the children that subclass LayoutElement.
+		* An array of all the children in this container that subclass
+		* LayoutElement.
+		* 
+		* @see com.paulcoyle.lhasa.LayoutElement LayoutElement
 		*/
 		public function get layout_element_children():Array {
 			var output:Array = new Array();

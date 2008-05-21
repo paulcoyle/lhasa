@@ -36,9 +36,10 @@ package {
 
   /**
   * BasicContainerExample
-  * A basic example for using LayoutContainers.
+  * A basic example for using LayoutContainers.  This example operates similar
+  * to the BasicElementExample.
   *
-  * @author Paul Coyle <paul.b.coyle@gmail.com>
+  * @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
   */
   public class BasicContainerExample extends Sprite {
     private var _container:LayoutContainer;

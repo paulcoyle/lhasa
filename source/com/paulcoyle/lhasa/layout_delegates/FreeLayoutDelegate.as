@@ -22,36 +22,34 @@
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package {
+package com.paulcoyle.lhasa.layout_delegates {
+  import com.paulcoyle.lhasa.LayoutContainer;
   import com.paulcoyle.lhasa.LayoutElement;
   
   /**
-  * SampleBox
-  * An example layout element.
+  * A layout delegate that concerns itself only with the sizing of its
+  * contained elements.  We also diregard sizing to the content width and
+  * height though this may be useful to implement in the future.
   *
-  * @author Paul Coyle <paul.b.coyle@gmail.com>
+  * @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
   */
-  public class SampleBox extends LayoutElement {
-    public function SampleBox() {
-      super();
-      
-      margin.all = 10;
-      padding.all = 10;
-    }
-    
-    // PROTECTED
-    /**
-    * Updates this element.
-    */
-    override protected function update():void {
-      super.update();
-      graphics.clear();
-      graphics.beginFill(0xff0000, 1);
-      graphics.drawRect(0, 0, total_width, total_height);
-      graphics.beginFill(0x00ff00, 1);
-      graphics.drawRect(inner_offset.x, inner_offset.y, inner_width, inner_height);
-      graphics.beginFill(0x0000ff, 1);
-      graphics.drawRect(padded_offset.x, padded_offset.y, padded_width, padded_height);
-    }
+  public class FreeLayoutDelegate implements ILayoutDelegate {
+    // PUBLIC
+		/**
+		* @inheritDoc
+		*/
+		public function perform_layout(container:LayoutContainer):void {
+		  var children:Array = container.layout_element_children;
+		  var child:LayoutElement;
+		  for each (child in children) {
+		    // Set the width
+		    if (child.defined_width_fixed) child.total_width = child.defined_width;
+		    else child.total_width = container.padded_width * child.defined_width;
+		    
+		    // Set the height
+		    if (child.defined_height_fixed) child.total_height = child.defined_height;
+		    else child.total_height = container.padded_height * child.defined_height;
+		  }
+	  }
   }
 }

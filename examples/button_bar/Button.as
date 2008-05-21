@@ -22,23 +22,33 @@
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 * OTHER DEALINGS IN THE SOFTWARE.
 */
-package com.paulcoyle.lhasa.layout_delegates {
-  import com.paulcoyle.lhasa.LayoutContainer;
+package {
+  import com.paulcoyle.lhasa.LayoutElement;
   
   /**
-  * Interface for layout delegates.
+  * Button
+  * A simple button.
   *
   * @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
   */
-  public interface ILayoutDelegate {
+  public class Button extends LayoutElement {
+    public function Button() {
+      super();
+      
+      defined_width = (Math.random() * 48 + 12).toString() + 'px';
+      defined_height = '32px';
+    }
+    
+    // PROTECTED
     /**
-		* Calculates the layout metrics and updates the children in the container.
-		*
-		* @param container A reference to the container whose children this
-		* delegate should sort.
-		*
-		* @see com.paulcoyle.lhasa.LayoutContainer LayoutContainer
-		*/
-    function perform_layout(container:LayoutContainer):void;
+    * Updates the button's graphics.
+    */
+    override protected function update():void {
+      super.update();
+      
+      graphics.clear();
+      graphics.beginFill(0xcc6666, 1);
+      graphics.drawRoundRect(inner_offset.x, inner_offset.y, inner_width, inner_height, 8, 8);
+    }
   }
 }

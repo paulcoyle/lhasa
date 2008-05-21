@@ -33,16 +33,17 @@ package {
 
   /**
   * BasicElementExample
-  * A basic element example.  This example is only concerned with a subclass of
-  * LayoutElement: SampleBox.  You can see how to set the total width and
-  * height of an element and how it affects its drawing.  The red area
+  * A basic element example. This example is only concerned with a subclass of
+  * LayoutElement: SampleBox. You can see how to set the total width and
+  * height of an element and how it affects its drawing. The red area
   * represents the margin, the green area represents the element area and the
   * blue area represents the padded area.
   *
-  * @author Paul Coyle <paul.b.coyle@gmail.com>
+  * @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
   */
   public class BasicElementExample extends Sprite {
     private var _box:SampleBox;
+    
     public function BasicElementExample() {
       stage.align = StageAlign.TOP_LEFT;
       stage.scaleMode = StageScaleMode.NO_SCALE;

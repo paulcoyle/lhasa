@@ -24,10 +24,13 @@
 */
 package com.paulcoyle.lhasa.types {
 	/**
-	* Box
-	* Describes the values for the four sides of an element.
+	* Describes the values for the four sides of an element.  Used for defining
+	* the <code>margin</code> and <code>padding</code> properties of
+	* LayoutElements.
 	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
+	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
+	* @see com.paulcoyle.lhasa.LayoutElement#margin LayoutElement.margin
+	* @see com.paulcoyle.lhasa.LayoutElement#padding LayoutElement.padding
 	*/
 	public class Box {
 		private var _top:Number;
@@ -35,6 +38,14 @@ package com.paulcoyle.lhasa.types {
 		private var _bottom:Number;
 		private var _left:Number;
 		
+		/**
+		* Creates a new Box.
+		* 
+		* @param top The value for the top of the box.
+		* @param right The value for the right side of the box.
+		* @param bottom The value for the bottom of the box.
+		* @param left The value for the left side of the box.
+		*/
 		public function Box(top:Number = 0, right:Number = 0, bottom:Number = 0, left:Number = 0) {
 			_top = top;
 			_right = right;
@@ -44,47 +55,94 @@ package com.paulcoyle.lhasa.types {
 		
 		// PUBLIC
 		/**
-		* Gets and sets the top property.
+		* The value for the top of the box.
 		*/
 		public function get top():Number { return _top }
+		/**
+		* @private
+		*/
 		public function set top(value:Number):void { _top = value }
 		
 		/**
-		* Gets and sets the right property.
+		* The value for the right side of the box.
 		*/
 		public function get right():Number { return _right }
+		/**
+		* @private
+		*/
 		public function set right(value:Number):void { _right = value }
 		
 		/**
-		* Gets and sets the bottom property.
+		* The value for the bottom of the box.
 		*/
 		public function get bottom():Number { return _bottom }
+		/**
+		* @private
+		*/
 		public function set bottom(value:Number):void { _bottom = value }
 		
 		/**
-		* Gets and sets the left property.
+		* The value for the left side of the box.
 		*/
 		public function get left():Number { return _left }
+		/**
+		* @private
+		*/
 		public function set left(value:Number):void { _left = value }
 		
 		/**
-		* Sets all properties.
+		* Sets all properties (<code>top</code>, <code>right</code>,
+		* <code>bottom</code> and <code>left</code>) to the supplied value.
 		*/
 		public function set all(value:Number):void { _top = _right = _bottom = _left = value }
 		
 		/**
-		* Gets the sum of the left and right properties.  Setting assigns the
-		* value given to both properties.
+		* The sum of the <code>right</code> and <code>left</code> values.  Setting
+		* this property applies the given value to both <code>right</code> and
+		* <code>left</code> equally.
+		* 
+		* <p><span class="label">Example</span>
+		* <pre>
+		* var box:Box = new Box(1, 2, 3, 4);
+		* trace(box.right, box.left, box.horizontal);// (2 4 6)
+		* 
+		* box.horizontal = 10;
+		* trace(box.right, box.left, box.horizontal);// (10 10 20)
+		* </pre>
+		* </p>
+		* 
+		* @see #right
+		* @see #left
 		*/
 		public function get horizontal():Number { return _left + _right }
+		/**
+		* @private
+		*/
 		public function set horizontal(value:Number):void { _left = _right = value }
 		
 		
 		/**
-		* Gets the sum of the top and bottom properties.  Setting assigns the
-		* value given to both properties.
+		* The sum of the <code>top</code> and <code>bottom</code> values.  Setting
+		* this property applies the given value to both <code>top</code> and
+		* <code>bottom</code> equally.
+		* 
+		* <p><span class="label">Example</span>
+		* <pre>
+		* var box:Box = new Box(1, 2, 3, 4);
+		* trace(box.top, box.bottom, box.vertical);// (1 3 4)
+		* 
+		* box.vertical = 10;
+		* trace(box.top, box.bottom, box.vertical);// (10 10 20)
+		* </pre>
+		* </p>
+		* 
+		* @see #top
+		* @see #bottom
 		*/
 		public function get vertical():Number { return _top + _bottom }
+		/**
+		* @private
+		*/
 		public function set vertical(value:Number):void { _top = _bottom = value }
 	}
 }

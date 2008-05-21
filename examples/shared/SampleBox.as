@@ -29,7 +29,7 @@ package {
   * SampleBox
   * An example layout element.
   *
-  * @author Paul Coyle <paul.b.coyle@gmail.com>
+  * @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
   */
   public class SampleBox extends LayoutElement {
     public function SampleBox() {

@@ -31,10 +31,9 @@ package com.paulcoyle.lhasa {
 	import flash.geom.Point;
 
 	/**
-	* LayoutElement
 	* Base class for all layout elements.
 	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
+	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
 	*/
 	public class LayoutElement extends Sprite {
 		/*
@@ -85,6 +84,9 @@ package com.paulcoyle.lhasa {
 		private static const DEBUG:Boolean = false;
 		private var _debug_rect_colour:uint;
 		
+		/**
+		* Creates a new LayoutElement.
+		*/
 		public function LayoutElement() {
 			_margin = new Box();
 			_padding = new Box();
@@ -98,9 +100,42 @@ package com.paulcoyle.lhasa {
 		
 		// PUBLIC
 		/**
-		* Gets and sets the defined_width property.
+		* The declared width that this element should be.  Works in concert with
+		* the <code>defined_width_fixed</code> property.
+		*
+		* <p>This property can be set in two separate ways: numerically and
+		* textually.  Setting the value numerically will simply set the value and
+		* dispatch an event.  By passing a string to this property both the values
+		* for <code>defined_width</code> and <code>defined_width_fixed</code> can
+		* be set simultaneously. To set these values textually you may use the
+		* formats:
+		*   <ul>
+		*     <li>##.##px</li>
+		*     <li>##.##%</li>
+		*   </ul></p>
+		*
+		* <p><span class="label">Example</span>
+		*    <pre>
+		* var element:LayoutElement = new LayoutElement();
+		*    
+		* element.defined_width = '34.5px';
+		* trace(element.defined_width, element.defined_width_fixed);// (34.5 true)
+		* 
+		* element.defined_width = '55.123%';
+		* trace(element.defined_width, element.defined_width_fixed);// (0.55123 false)
+		* </pre>
+		*   It is important to note that non-fixed values are converted to
+		*   scalars.
+		* </p>
+		*
+		* @default 1
+		*
+		* @see #defined_width_fixed
 		*/
 		public function get defined_width():Number { return _defined_width }
+		/**
+		* @private
+		*/
 		public function set defined_width(value:*):void {
 		  if (value is String) {
 		    var values:Object = parse_numeric_string(value as String);
@@ -112,26 +147,43 @@ package com.paulcoyle.lhasa {
   		  value = value as Number;
   			if (value != _defined_width) {
   				_defined_width = value;
-  				dispatch_definition_invalidated();
+  				dispatch_layout_invalidated();
   			}
 		  }
 		}
 		
 		/**
-		* Gets and sets the defined_width_fixed property.
+		* Indicates whether or not the value for <code>defined_width</code> should
+		* be treated as a fixed or variable value.
+		*
+		* @default false
+		*
+		* @see #defined_width
 		*/
 		public function get defined_width_fixed():Boolean { return _defined_width_fixed }
+		/**
+		* @private
+		*/
 		public function set defined_width_fixed(value:Boolean):void {
 			if (value != _defined_width_fixed) {
 				_defined_width_fixed = value;
-				dispatch_definition_invalidated();
+				dispatch_layout_invalidated();
 			}
 		}
 		
 		/**
-		* Gets and sets the defined_height property.
+		* The declared width that this element should be.  Works in concert with
+		* the <code>defined_width_fixed</code> property.  For details on how to set
+		* values textually see the definition for <code><a href="#defined_width">defined_width</a></code>.
+		*
+		* @default 1
+		*
+		* @see #defined_height_fixed
 		*/
 		public function get defined_height():Number { return _defined_height }
+		/**
+		* @private
+		*/
 		public function set defined_height(value:*):void {
 		  if (value is String) {
 		    var values:Object = parse_numeric_string(value as String);
@@ -143,48 +195,83 @@ package com.paulcoyle.lhasa {
   		  value = value as Number;
   			if (value != _defined_height) {
   				_defined_height = value;
-  				dispatch_definition_invalidated();
+  				dispatch_layout_invalidated();
   			}
 		  }
 		}
 		
 		/**
-		* Gets and sets the defined_height_fixed property.
+		* Indicates whether or not the value for <code>defined_height</code> should
+		* be treated as a fixed or variable value.
+		*
+		* @default false
+		*
+		* @see #defined_height
 		*/
 		public function get defined_height_fixed():Boolean { return _defined_height_fixed }
+		/**
+		* @private
+		*/
 		public function set defined_height_fixed(value:Boolean):void {
 			if (value != _defined_height_fixed) {
 				_defined_height_fixed = value;
-				dispatch_definition_invalidated();
+				dispatch_layout_invalidated();
 			}
 		}
 		
 		/**
-		* Gets and sets the align_horizontal property.
+		* The horizontal alignment for the element.
+		*
+		* @default 0 (MIDDLE)
+		*
+		* @see com.paulcoyle.lhasa.types.Align
 		*/
 		public function get align_horizontal():uint { return _align_horizontal }
+		/**
+		* @private
+		*/
 		public function set align_horizontal(value:uint):void {
 			if (value != _align_horizontal) {
 				_align_horizontal = value;
-				dispatch_definition_invalidated();
+				dispatch_layout_invalidated();
 			}
 		}
 		
 		/**
-		* Gets and sets the layout_horizontal_align property.
+		* The vertical alignment for the element.
+		*
+		* @default 0 (MIDDLE)
+		*
+		* @see com.paulcoyle.lhasa.types.Align
 		*/
 		public function get align_vertical():uint { return _align_vertical }
+		/**
+		* @private
+		*/
 		public function set align_vertical(value:uint):void {
 			if (value != _align_vertical) {
 				_align_vertical = value;
-				dispatch_definition_invalidated();
+				dispatch_layout_invalidated();
 			}
 		}
 		
 		/**
-		* Gets and sets the total_width property.
+		* The total width assigned <em>to</em> the element.  This is
+		* usually set by the element's container.  This values affects the values
+		* for: <code>inner_offset</code>, <code>inner_width</code>,
+		* <code>padded_offset</code> and <code>padded_width</code>.
+		*
+		* @default 0
+		*
+		* @see #inner_offset
+		* @see #inner_width
+		* @see #padded_offset
+		* @see #padded_width
 		*/
 		public function get total_width():Number { return _total_width }
+		/**
+		* @private
+		*/
 		public function set total_width(value:Number):void {
 			if (value != _total_width) {
 				_total_width = value;
@@ -193,9 +280,22 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Gets and sets the total_height property.
+		* The total height assigned <em>to</em> the element.  This is
+		* usually set by the element's container.  This values affects the values
+		* for: <code>inner_offset</code>, <code>inner_height</code>,
+		* <code>padded_height</code> and <code>padded_height</code>.
+		*
+		* @default 0
+		*
+		* @see #inner_offset
+		* @see #inner_height
+		* @see #padded_offset
+		* @see #padded_height
 		*/
 		public function get total_height():Number { return _total_height }
+		/**
+		* @private
+		*/
 		public function set total_height(value:Number):void {
 			if (value != _total_height) {
 				_total_height = value;
@@ -204,46 +304,64 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Gets the margins property.
+		* The margin values for this element.
+		*
+		* @see com.paulcoyle.lhasa.types.Box
 		*/
 		public function get margin():Box { return _margin }
 		
 		/**
-		* Gets the padding property.
+		* The padding values for this element.
+		*
+		* @see com.paulcoyle.lhasa.types.Box
 		*/
 		public function get padding():Box { return _padding }
 		
 		/**
-		* Gets and sets the inner_width property.
+		* Defines the width of the element without margins.
 		*/
 		public function get inner_width():Number { return _total_width - _margin.left - _margin.right }
+		/**
+		* @private
+		*/
 		public function set inner_width(value:Number):void { total_width = value + _margin.left + _margin.right }
 		
 		/**
-		* Gets the inner_height property.
+		* Defines the height of the element without margins.
 		*/
 		public function get inner_height():Number { return _total_height - _margin.top - _margin.bottom }
+		/**
+		* @private
+		*/
 		public function set inner_height(value:Number):void { total_height = value + _margin.top + _margin.bottom }
 		
 		/**
-		* Gets the padded_width property.
+		* Defines the width of the element without margins and with padding.
 		*/
 		public function get padded_width():Number { return inner_width - _padding.left - _padding.right }
+		/**
+		* @private
+		*/
 		public function set padded_width(value:Number):void { inner_width = value + _padding.left + _padding.right }
 		
 		/**
-		* Gets the padded_height property.
+		* Defines the height of the element without margins and with padding.
 		*/
 		public function get padded_height():Number { return inner_height - _padding.top - _padding.bottom }
+		/**
+		* @private
+		*/
 		public function set padded_height(value:Number):void { inner_height = value + _padding.top + _padding.bottom }
 		
 		/**
-		* Gets the inner_offset property.
+		* Defines the local coordinates that represent the top left corner of the
+		* element where the inner area (without margin) begins.
 		*/
 		public function get inner_offset():Point { return new Point(_margin.left, _margin.top) }
 		
 		/**
-		* Gets the padded_offset property.
+		* Defines the local coordinates that represent the top left corner of the
+		* element where the padded area (without margin and with padding) begins.
 		*/
 		public function get padded_offset():Point { return new Point(_margin.left + _padding.left, _margin.top + _padding.top) }
 		
@@ -254,6 +372,8 @@ package com.paulcoyle.lhasa {
 		* RENDER event.  If the stage is not available, a listener is added for the
 		* ADDED_TO_STAGE event.  When that event fires an update is immediately
 		* executed.
+		*
+		* @see #update()
 		*/
 		protected function update_next():void {
 		  if (_update_next == false) {
@@ -264,7 +384,11 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Called when the inner_width or inner_height are changed.
+		* Called after the stage has been invalidated due to a call to
+		* <code>update_next()</code> which indicates that a value that could
+		* warrant a graphical update has changed.
+		*
+		* @see #update_next()
 		*/
 		protected function update():void {
 			if (DEBUG) {
@@ -279,7 +403,10 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Updates if there is a pending render flag.
+		* Updates if there is a pending render flag set by <code>update()</code>.
+		*
+		* @see #update()
+		* @see #update_next()
 		*/
 		protected function update_if_pending():void {
 			if (_update_next) {
@@ -289,17 +416,21 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Dispatches a LayoutElementEvent.DEFINITION_INVALIDATED event.
+		* Dispatches a LayoutElementEvent.INVALIDATED event.
 		*/
-		protected function dispatch_definition_invalidated():void { dispatchEvent(new LayoutElementEvent(LayoutElementEvent.DEFINITION_INVALIDATED)) }
+		protected function dispatch_layout_invalidated():void {
+		  dispatchEvent(new LayoutElementEvent(LayoutElementEvent.INVALIDATED));
+		}
 		
 		// PRIVATE
 		/**
 		* Returns an object with two properties: value and fixed referring to
 		* whether or not the value given is a percentage or a set value.  The two
 		* possible formats are: '##.##%' and '##.##px'.  For example:
-		* '12.34%' => {value:12.34, fixed:false}
+		* '12.34%' => {value:0.1234, fixed:false}
 		* '345px'  => {value:345, fixed:true}
+		* 
+		* Note that percentages are converted to scalar (0≤n≤1) values.
 		*/
 		private function parse_numeric_string(value:String):Object {
 		  var parse_expression:RegExp = /^([0-9]{1,})(\.[0-9]{0,})?(%|px)$/;
@@ -309,7 +440,7 @@ package com.paulcoyle.lhasa {
 		    var is_fixed:Boolean = (parse_result[3] == 'px');
 		    var parsed_value:Number = parseFloat(value);
 		    return {
-		      value: (is_fixed) ? parsed_value : parsed_value / 100,// percentages are converted to scalar values
+		      value: (is_fixed) ? parsed_value : parsed_value / 100,
 		      fixed: is_fixed
 		    };
 		  }

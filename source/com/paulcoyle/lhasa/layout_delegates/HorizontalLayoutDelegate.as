@@ -28,15 +28,19 @@ package com.paulcoyle.lhasa.layout_delegates {
   import com.paulcoyle.lhasa.types.Align;
   
 	/**
-	* HorizontalLayoutDelegate
-	* Arranges its LayoutElement children horizontally.
+	* Arranges its LayoutElement children horizontally.  This delegate honours
+	* the <code>align_vertical</code> attribute on the <code>LayoutElements</code>
+	* it arranges positioning them relative to the container's height.
 	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
+	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
+	*
+	* @see com.paulcoyle.lhasa.LayoutElement LayoutElement
+	* @see com.paulcoyle.lhasa.LayoutElement#align_vertical LayoutElement.align_vertical
 	*/
 	public class HorizontalLayoutDelegate implements ILayoutDelegate  {
 		// PUBLIC
 		/**
-		* Handles updating when the element changes size.
+		* @inheritDoc
 		*/
 		public function perform_layout(container:LayoutContainer):void {
 			// Find the total fixed width and the total relative width

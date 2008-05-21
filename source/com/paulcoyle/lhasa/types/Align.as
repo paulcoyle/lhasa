@@ -24,16 +24,38 @@
 */
 package com.paulcoyle.lhasa.types {
 	/**
-	* Align
-	* Defines alignment settings.
+	* Defines alignment settings on LayoutElements.  Used on the
+	* <code>align_horizontal</code> and <code>align_vertical</code>
+	* properties.
 	*
-	* @author Paul Coyle <paul.b.coyle@gmail.com>
+	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
+	* @see com.paulcoyle.lhasa.LayoutElement#align_vertical LayoutElement.align_vertical
+	* @see com.paulcoyle.lhasa.LayoutElement#align_horizontal LayoutElement.align_horizontal
 	*/
 	public class Align {
+	  /**
+	  * Aligns to the middle either horizontally or vertically.
+	  */
 		public static const MIDDLE:uint = 0;
+		
+		/**
+	  * Aligns to the left.
+	  */
 		public static const LEFT:uint = 1;
+		
+		/**
+	  * Aligns to the right.
+	  */
 		public static const RIGHT:uint = 2;
+		
+		/**
+	  * Aligns to the top.
+	  */
 		public static const TOP:uint = 3;
+		
+		/**
+	  * Aligns to the bottom.
+	  */
 		public static const BOTTOM:uint = 4;
 	}
 }
