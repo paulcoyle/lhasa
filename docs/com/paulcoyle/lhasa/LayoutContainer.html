@@ -255,7 +255,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="LayoutElement.html#update_if_pending()">update_if_pending</a>():void</div>
 <div class="summaryTableDescription">
-  Updates if there is a pending render flag set by <code>update()</code>.</div>
+  Updates if there is a pending update flag set by <code>update()</code>.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProtectedMethod">
@@ -263,9 +263,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="LayoutElement.html#update_next()">update_next</a>():void</div>
 <div class="summaryTableDescription">
-  Sets an internal flag causing the element to invalidate the stage if it
-  exists which will tridder the update method when the stage dispatches its
-  RENDER event.</div>
+  Sets an internal flag indicating that the element needs to update on the
+  next render.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 </table>

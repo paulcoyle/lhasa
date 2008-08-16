@@ -1,26 +1,23 @@
 /**
 * Copyright (c) 2008 Paul Coyle
 *
-* Permission is hereby granted, free of charge, to any person
-* obtaining a copy of this software and associated documentation
-* files (the "Software"), to deal in the Software without
-* restriction, including without limitation the rights to use,
-* copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the
-* Software is furnished to do so, subject to the following
-* conditions:
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
 *
-* The above copyright notice and this permission notice shall be
-* included in all copies or substantial portions of the Software.
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
 *
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-* OTHER DEALINGS IN THE SOFTWARE.
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
 */
 package com.paulcoyle.lhasa {
   import com.paulcoyle.lhasa.types.Box;
@@ -93,9 +90,12 @@ package com.paulcoyle.lhasa {
 			_padding = new Box();
 			_padding.addEventListener(Event.CHANGE, on_padding_change, false, 0, true);
 			
-			addEventListener(Event.RENDER, on_display_render, false, 0, true);
-			
 			_debug_rect_colour = Math.random() * 0xffffff;
+			
+			addEventListener(Event.ADDED_TO_STAGE, on_added_to_stage,
+			  false, 0, true);
+			addEventListener(Event.REMOVED_FROM_STAGE, on_removed_from_stage,
+			  false, 0, true);
 			
 			update_next();
 		}
@@ -258,8 +258,8 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* The total width assigned <em>to</em> the element.  This is
-		* usually set by the element's container.  This values affects the values
+		* The total width assigned <em>to</em> the element.  This is usually set by
+		* the element container's layout delegate.  This values affects the values
 		* for: <code>inner_offset</code>, <code>inner_width</code>,
 		* <code>padded_offset</code> and <code>padded_width</code>.
 		*
@@ -282,8 +282,8 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* The total height assigned <em>to</em> the element.  This is
-		* usually set by the element's container.  This values affects the values
+		* The total height assigned <em>to</em> the element.  This is usually set by
+		* the element container's layout delegate.  This values affects the values
 		* for: <code>inner_offset</code>, <code>inner_height</code>,
 		* <code>padded_height</code> and <code>padded_height</code>.
 		*
@@ -322,68 +322,82 @@ package com.paulcoyle.lhasa {
 		/**
 		* Defines the width of the element without margins.
 		*/
-		public function get inner_width():Number { return _total_width - _margin.left - _margin.right }
+		public function get inner_width():Number {
+		  return _total_width - _margin.left - _margin.right;
+		}
 		/**
 		* @private
 		*/
-		public function set inner_width(value:Number):void { total_width = value + _margin.left + _margin.right }
+		public function set inner_width(value:Number):void {
+		  total_width = value + _margin.left + _margin.right;
+		}
 		
 		/**
 		* Defines the height of the element without margins.
 		*/
-		public function get inner_height():Number { return _total_height - _margin.top - _margin.bottom }
+		public function get inner_height():Number {
+		  return _total_height - _margin.top - _margin.bottom;
+		}
 		/**
 		* @private
 		*/
-		public function set inner_height(value:Number):void { total_height = value + _margin.top + _margin.bottom }
+		public function set inner_height(value:Number):void {
+		  total_height = value + _margin.top + _margin.bottom;
+		}
 		
 		/**
 		* Defines the width of the element without margins and with padding.
 		*/
-		public function get padded_width():Number { return inner_width - _padding.left - _padding.right }
+		public function get padded_width():Number {
+		  return inner_width - _padding.left - _padding.right;
+		}
 		/**
 		* @private
 		*/
-		public function set padded_width(value:Number):void { inner_width = value + _padding.left + _padding.right }
+		public function set padded_width(value:Number):void {
+		  inner_width = value + _padding.left + _padding.right;
+		}
 		
 		/**
 		* Defines the height of the element without margins and with padding.
 		*/
-		public function get padded_height():Number { return inner_height - _padding.top - _padding.bottom }
+		public function get padded_height():Number {
+		  return inner_height - _padding.top - _padding.bottom;
+		}
 		/**
 		* @private
 		*/
-		public function set padded_height(value:Number):void { inner_height = value + _padding.top + _padding.bottom }
+		public function set padded_height(value:Number):void {
+		  inner_height = value + _padding.top + _padding.bottom;
+		}
 		
 		/**
 		* Defines the local coordinates that represent the top left corner of the
 		* element where the inner area (without margin) begins.
 		*/
-		public function get inner_offset():Point { return new Point(_margin.left, _margin.top) }
+		public function get inner_offset():Point {
+		  return new Point(_margin.left, _margin.top);
+		}
 		
 		/**
 		* Defines the local coordinates that represent the top left corner of the
 		* element where the padded area (without margin and with padding) begins.
 		*/
-		public function get padded_offset():Point { return new Point(_margin.left + _padding.left, _margin.top + _padding.top) }
+		public function get padded_offset():Point {
+		  return new Point(_margin.left + _padding.left, _margin.top + _padding.top);
+		}
 		
 		// PROTECTED
 		/**
-		* Sets an internal flag causing the element to invalidate the stage if it
-		* exists which will tridder the update method when the stage dispatches its
-		* RENDER event.  If the stage is not available, a listener is added for the
-		* ADDED_TO_STAGE event.  When that event fires an update is immediately
-		* executed.
+		* Sets an internal flag indicating that the element needs to update on the
+		* next render.  We use the <code>ENTER_FRAME</code> event to trigger renders
+		* since the <code>RENDER</code> event is unreliable
+		* (see <a href="http://www.actionscript.org/forums/archive/index.php3/t-143158.html">
+		* this forum post for details</a>).
 		*
 		* @see #update()
 		*/
-		protected function update_next():void {
-		  if (_update_next == false) {
-		    _update_next = true;
-		    if (stage != null) stage.invalidate();
-		    else addEventListener(Event.ADDED_TO_STAGE, on_added_to_stage_for_update_next, false, 0, true);
-		  }
-		}
+		protected function update_next():void { _update_next = true }
 		
 		/**
 		* Called after the stage has been invalidated due to a call to
@@ -396,24 +410,27 @@ package com.paulcoyle.lhasa {
 			if (DEBUG) {
 				graphics.clear();
 				graphics.beginFill(_debug_rect_colour, .2);
-				graphics.drawRect(inner_offset.x, inner_offset.y, inner_width, inner_height);
+				graphics.drawRect(inner_offset.x, inner_offset.y, inner_width,
+				  inner_height);
 				graphics.beginFill(_debug_rect_colour, 1);
-				graphics.drawRect(inner_offset.x, inner_offset.y, inner_width, inner_height);
-				graphics.drawRect(inner_offset.x + 1, inner_offset.y + 1, inner_width - 2, inner_height - 2);
+				graphics.drawRect(inner_offset.x, inner_offset.y, inner_width,
+				  inner_height);
+				graphics.drawRect(inner_offset.x + 1, inner_offset.y + 1,
+				  inner_width - 2, inner_height - 2);
 			}
 			dispatchEvent(new LayoutElementEvent(LayoutElementEvent.UPDATED));
 		}
 		
 		/**
-		* Updates if there is a pending render flag set by <code>update()</code>.
+		* Updates if there is a pending update flag set by <code>update()</code>.
 		*
 		* @see #update()
 		* @see #update_next()
 		*/
 		protected function update_if_pending():void {
 			if (_update_next) {
+			  _update_next = false;
 				update();
-				_update_next = false;
 			}
 		}
 		
@@ -464,18 +481,25 @@ package com.paulcoyle.lhasa {
 		}
 		
 		/**
-		* Handles the event indicating that a render is about to occur.  If the
-		* _update_next property is set, the update() method is invoked.
+		* Handles the element being added to the stage and performs an update if one
+		* is pending.  The element will now listen for enter frame events.
 		*/
-		private function on_display_render(event:Event):void { update_if_pending() }
-		
-		/**
-		* Handles an added to stage event that was listeneed for when attempting
-		* an update_next call and the stage was, at that time, unavailable.
-		*/
-		private function on_added_to_stage_for_update_next(event:Event):void {
-		  removeEventListener(Event.ADDED_TO_STAGE, on_added_to_stage_for_update_next);
+		private function on_added_to_stage(event:Event):void {
+		  addEventListener(Event.ENTER_FRAME, on_enter_frame, false, 0, true);
 		  update_if_pending();
 		}
+		
+		/**
+		* Handles the element being removed from the stage.  We quit listening for
+		* enter frame events since they will not be received and are not needed.
+		*/
+		private function on_removed_from_stage(event:Event):void {
+		  removeEventListener(Event.ENTER_FRAME, on_enter_frame);
+		}
+		
+		/**
+		* Handles an enter frame event and performs and update if one is pending.
+		*/
+		private function on_enter_frame(event:Event):void { update_if_pending() }
 	}
 }

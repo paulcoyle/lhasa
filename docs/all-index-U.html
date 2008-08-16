@@ -63,16 +63,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("UÂ
 </tr>
 <tr>
 <td width="20"></td><td>
-  Updates if there is a pending render flag set by <code>update()</code>.</td>
+  Updates if there is a pending update flag set by <code>update()</code>.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/paulcoyle/lhasa/class-list.html');" href="com/paulcoyle/lhasa/LayoutElement.html#update_next()">update_next</a>() &mdash; Method in class com.paulcoyle.lhasa.<a onclick="javascript:loadClassListFrame('com/paulcoyle/lhasa/class-list.html');" href="com/paulcoyle/lhasa/LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
-  Sets an internal flag causing the element to invalidate the stage if it
-  exists which will tridder the update method when the stage dispatches its
-  RENDER event.</td>
+  Sets an internal flag indicating that the element needs to update on the
+  next render.</td>
 </tr>
 <tr>
 <td style="padding-bottom:20px" colspan="2"></td>
