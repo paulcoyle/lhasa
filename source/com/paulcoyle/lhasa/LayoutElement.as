@@ -89,7 +89,9 @@ package com.paulcoyle.lhasa {
 		*/
 		public function LayoutElement() {
 			_margin = new Box();
+			_margin.addEventListener(Event.CHANGE, on_margin_change, false, 0, true);
 			_padding = new Box();
+			_padding.addEventListener(Event.CHANGE, on_padding_change, false, 0, true);
 			
 			addEventListener(Event.RENDER, on_display_render, false, 0, true);
 			
@@ -445,6 +447,20 @@ package com.paulcoyle.lhasa {
 		    };
 		  }
 		  else return {value:parseFloat(value), fixed:true};// Do our best with what we're given
+		}
+		
+		/**
+		* Handles changes on the margin Box.  Invalidates the element.
+		*/
+		private function on_margin_change(event:Event):void {
+		  dispatch_layout_invalidated();
+		}
+		
+		/**
+		* Handles changes on the padding Box.  Invalidates the element.
+		*/
+		private function on_padding_change(event:Event):void {
+		  dispatch_layout_invalidated();
 		}
 		
 		/**

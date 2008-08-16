@@ -23,6 +23,9 @@
 * OTHER DEALINGS IN THE SOFTWARE.
 */
 package com.paulcoyle.lhasa.types {
+  import flash.events.Event;
+  import flash.events.EventDispatcher;
+  
 	/**
 	* Describes the values for the four sides of an element.  Used for defining
 	* the <code>margin</code> and <code>padding</code> properties of
@@ -32,7 +35,7 @@ package com.paulcoyle.lhasa.types {
 	* @see com.paulcoyle.lhasa.LayoutElement#margin LayoutElement.margin
 	* @see com.paulcoyle.lhasa.LayoutElement#padding LayoutElement.padding
 	*/
-	public class Box {
+	public class Box extends EventDispatcher {
 		private var _top:Number;
 		private var _right:Number;
 		private var _bottom:Number;
@@ -61,7 +64,12 @@ package com.paulcoyle.lhasa.types {
 		/**
 		* @private
 		*/
-		public function set top(value:Number):void { _top = value }
+		public function set top(value:Number):void {
+		  if (value != _top) {
+		    _top = value;
+		    dispatchEvent(new Event(Event.CHANGE));
+		  }
+		}
 		
 		/**
 		* The value for the right side of the box.
@@ -70,7 +78,12 @@ package com.paulcoyle.lhasa.types {
 		/**
 		* @private
 		*/
-		public function set right(value:Number):void { _right = value }
+		public function set right(value:Number):void {
+		  if (value != _right) {
+		    _right = value
+		    dispatchEvent(new Event(Event.CHANGE));
+		  }
+		}
 		
 		/**
 		* The value for the bottom of the box.
@@ -79,7 +92,12 @@ package com.paulcoyle.lhasa.types {
 		/**
 		* @private
 		*/
-		public function set bottom(value:Number):void { _bottom = value }
+		public function set bottom(value:Number):void {
+		  if (value != _bottom) {
+		    _bottom = value;
+		    dispatchEvent(new Event(Event.CHANGE));
+		  }
+		}
 		
 		/**
 		* The value for the left side of the box.
@@ -88,13 +106,18 @@ package com.paulcoyle.lhasa.types {
 		/**
 		* @private
 		*/
-		public function set left(value:Number):void { _left = value }
+		public function set left(value:Number):void {
+		  if (value != _left) {
+		    _left = value;
+		    dispatchEvent(new Event(Event.CHANGE));
+		  }
+		}
 		
 		/**
 		* Sets all properties (<code>top</code>, <code>right</code>,
 		* <code>bottom</code> and <code>left</code>) to the supplied value.
 		*/
-		public function set all(value:Number):void { _top = _right = _bottom = _left = value }
+		public function set all(value:Number):void { top = right = bottom = left = value }
 		
 		/**
 		* The sum of the <code>right</code> and <code>left</code> values.  Setting
@@ -114,11 +137,11 @@ package com.paulcoyle.lhasa.types {
 		* @see #right
 		* @see #left
 		*/
-		public function get horizontal():Number { return _left + _right }
+		public function get horizontal():Number { return left + right }
 		/**
 		* @private
 		*/
-		public function set horizontal(value:Number):void { _left = _right = value }
+		public function set horizontal(value:Number):void { left = right = value }
 		
 		
 		/**
@@ -139,10 +162,10 @@ package com.paulcoyle.lhasa.types {
 		* @see #top
 		* @see #bottom
 		*/
-		public function get vertical():Number { return _top + _bottom }
+		public function get vertical():Number { return top + bottom }
 		/**
 		* @private
 		*/
-		public function set vertical(value:Number):void { _top = _bottom = value }
+		public function set vertical(value:Number):void { top = bottom = value }
 	}
 }
