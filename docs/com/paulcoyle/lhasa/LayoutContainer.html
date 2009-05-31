@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="LayoutContainer,com.paulcoyle.lhasa.LayoutContainer,content_height,content_width,horizontal_spacing,layout_delegate,layout_element_children,size_to_content_height,size_to_content_width,vertical_spacing,update" name="keywords">
+<meta content="LayoutContainer,com.paulcoyle.lhasa.LayoutContainer,contentHeight,contentWidth,horizontalSpacing,layoutChildren,layoutDelegate,sizeToContentHeight,sizeToContentWidth,verticalSpacing,update" name="keywords">
 <title>com.paulcoyle.lhasa.LayoutContainer</title>
 </head>
 <body>
@@ -45,12 +45,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
- A LayoutContainer is responsible for any children within it that subclass
- LayoutElement and their positioning and sizing.
-  <p>LayoutContainers delegate the actual task of performing the layout
- calculations to their <code>layout_delegate</code>.  Layout delegates can
- be changed at run-time.</p>
-  <p></p>
+  A LayoutContainer is responsible for any children within it that subclass
+  LayoutElement and their positioning and sizing.
+    <p>LayoutContainers delegate the actual task of performing the layout
+  calculations to their <code>layoutDelegate</code>.  Layout delegates can
+  be changed at run-time.</p>
+    <p></p>
 <br>
 <hr>
 </div>
@@ -70,133 +70,143 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#align_horizontal">align_horizontal</a> : uint<div class="summaryTableDescription">
-  The horizontal alignment for the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#alignHorizontal">alignHorizontal</a> : uint<div class="summaryTableDescription">
+    The horizontal alignment for the element.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#align_vertical">align_vertical</a> : uint<div class="summaryTableDescription">
-  The vertical alignment for the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#alignVertical">alignVertical</a> : uint<div class="summaryTableDescription">
+    The vertical alignment for the element.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#content_height">content_height</a> : Number<div class="summaryTableDescription">
-  The calculated height of the contained elements.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#contentHeight">contentHeight</a> : Number<div class="summaryTableDescription">
+    The calculated height of the contained elements.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#content_width">content_width</a> : Number<div class="summaryTableDescription">
-  The calculated width of the contained elements.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#contentWidth">contentWidth</a> : Number<div class="summaryTableDescription">
+    The calculated width of the contained elements.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#defined_height">defined_height</a> : Number<div class="summaryTableDescription">
-  The declared width that this element should be.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#definedHeight">definedHeight</a> : Number<div class="summaryTableDescription">
+    The declared width that this element should be.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#defined_height_fixed">defined_height_fixed</a> : Boolean<div class="summaryTableDescription">
-  Indicates whether or not the value for <code>defined_height</code> should
-  be treated as a fixed or variable value.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#definedHeightFixed">definedHeightFixed</a> : Boolean<div class="summaryTableDescription">
+    Indicates whether or not the value for <code>definedHeight</code> should
+    be treated as a fixed or variable value.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#defined_width">defined_width</a> : Number<div class="summaryTableDescription">
-  The declared width that this element should be.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#definedWidth">definedWidth</a> : Number<div class="summaryTableDescription">
+    The declared width that this element should be.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#defined_width_fixed">defined_width_fixed</a> : Boolean<div class="summaryTableDescription">
-  Indicates whether or not the value for <code>defined_width</code> should
-  be treated as a fixed or variable value.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#definedWidthFixed">definedWidthFixed</a> : Boolean<div class="summaryTableDescription">
+    Indicates whether or not the value for <code>definedWidth</code> should
+    be treated as a fixed or variable value.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#horizontal_spacing">horizontal_spacing</a> : Number<div class="summaryTableDescription">
-  The amount of space in pixels to be placed horizontally between elements.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#horizontalSpacing">horizontalSpacing</a> : Number<div class="summaryTableDescription">
+    The amount of space in pixels to be placed horizontally between elements.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#inner_height">inner_height</a> : Number<div class="summaryTableDescription">
-  Defines the height of the element without margins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#innerHeight">innerHeight</a> : Number<div class="summaryTableDescription">
+    Defines the height of the element without margins.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#inner_offset">inner_offset</a> : Point<div class="summaryTableDescription">
-  Defines the local coordinates that represent the top left corner of the
-  element where the inner area (without margin) begins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#innerOffset">innerOffset</a> : Point<div class="summaryTableDescription">
+    Defines the local coordinates that represent the top left corner of the
+    element where the inner area (without margin) begins.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#inner_width">inner_width</a> : Number<div class="summaryTableDescription">
-  Defines the width of the element without margins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#innerRect">innerRect</a> : Rectangle<div class="summaryTableDescription">
+    Returns a Rectangle representing the inner area.</div>
+</td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#innerWidth">innerWidth</a> : Number<div class="summaryTableDescription">
+    Defines the width of the element without margins.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#layout_delegate">layout_delegate</a> : <a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#layoutChildren">layoutChildren</a> : Array<div class="summaryTableDescription">[read-only]
+    An array of all the children in this container that subclass
+    LayoutElement.</div>
+</td><td class="summaryTableOwnerCol">LayoutContainer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#layoutDelegate">layoutDelegate</a> : <a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>
 <div class="summaryTableDescription">
-  The layout delegate responsible for this container.</div>
-</td><td class="summaryTableOwnerCol">LayoutContainer</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#layout_element_children">layout_element_children</a> : Array<div class="summaryTableDescription">[read-only]
-  An array of all the children in this container that subclass
-  LayoutElement.</div>
+    The layout delegate responsible for this container.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="hideInheritedProperty">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#margin">margin</a> : <a href="types/Box.html">Box</a>
 <div class="summaryTableDescription">
-  The margin values for this element.</div>
+    The margin values for this element.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#padded_height">padded_height</a> : Number<div class="summaryTableDescription">
-  Defines the height of the element without margins and with padding.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#paddedHeight">paddedHeight</a> : Number<div class="summaryTableDescription">
+    Defines the height of the element without margins and with padding.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#padded_offset">padded_offset</a> : Point<div class="summaryTableDescription">
-  Defines the local coordinates that represent the top left corner of the
-  element where the padded area (without margin and with padding) begins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#paddedOffset">paddedOffset</a> : Point<div class="summaryTableDescription">
+    Defines the local coordinates that represent the top left corner of the
+    element where the padded area (without margin and with padding) begins.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#padded_width">padded_width</a> : Number<div class="summaryTableDescription">
-  Defines the width of the element without margins and with padding.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#paddedRect">paddedRect</a> : Rectangle<div class="summaryTableDescription">
+    Returns a Rectangle representing the padded area.</div>
+</td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#paddedWidth">paddedWidth</a> : Number<div class="summaryTableDescription">
+    Defines the width of the element without margins and with padding.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#padding">padding</a> : <a href="types/Box.html">Box</a>
 <div class="summaryTableDescription">
-  The padding values for this element.</div>
+    The padding values for this element.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#size_to_content_height">size_to_content_height</a> : Boolean<div class="summaryTableDescription">
-  Indicates whether or not this container should resize itself to match the
-  height of its contained elements.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sizeToContentHeight">sizeToContentHeight</a> : Boolean<div class="summaryTableDescription">
+    Indicates whether or not this container should resize itself to match the
+    height of its contained elements.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#size_to_content_width">size_to_content_width</a> : Boolean<div class="summaryTableDescription">
-  Indicates whether or not this container should resize itself to match the
-  width of its contained elements.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sizeToContentWidth">sizeToContentWidth</a> : Boolean<div class="summaryTableDescription">
+    Indicates whether or not this container should resize itself to match the
+    width of its contained elements.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#total_height">total_height</a> : Number<div class="summaryTableDescription">
-  The total height assigned <em>to</em> the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#totalHeight">totalHeight</a> : Number<div class="summaryTableDescription">
+    The total height assigned <em>to</em> the element.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProperty">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#total_width">total_width</a> : Number<div class="summaryTableDescription">
-  The total width assigned <em>to</em> the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="LayoutElement.html#totalWidth">totalWidth</a> : Number<div class="summaryTableDescription">
+    The total width assigned <em>to</em> the element.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#vertical_spacing">vertical_spacing</a> : Number<div class="summaryTableDescription">
-  The amount of space in pixels to be placed vertically between elements.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#verticalSpacing">verticalSpacing</a> : Number<div class="summaryTableDescription">
+    The amount of space in pixels to be placed vertically between elements.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 </table>
@@ -211,9 +221,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#LayoutContainer()">LayoutContainer</a>(layout_delegate:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>)</div>
+<a class="signatureLink" href="#LayoutContainer()">LayoutContainer</a>(layoutDelegate:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>)</div>
 <div class="summaryTableDescription">
-  Creates a new LayoutContainer.</div>
+    Creates a new LayoutContainer.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 </table>
@@ -236,9 +246,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="hideInheritedProtectedMethod">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="LayoutElement.html#dispatch_layout_invalidated()">dispatch_layout_invalidated</a>():void</div>
+<a class="signatureLink" href="LayoutElement.html#dispatchLayoutInvalidated()">dispatchLayoutInvalidated</a>():void</div>
 <div class="summaryTableDescription">
-  Dispatches a LayoutElementEvent.INVALIDATED event.</div>
+    Dispatches a LayoutElementEvent.INVALIDATED event.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="">
@@ -246,25 +256,25 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#update()">update</a>():void</div>
 <div class="summaryTableDescription">
-  Updates this element then invokes the layout delegate to operate on the
-  children.</div>
+    Updates this element then invokes the layout delegate to operate on the
+    children.</div>
 </td><td class="summaryTableOwnerCol">LayoutContainer</td>
 </tr>
 <tr class="hideInheritedProtectedMethod">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="LayoutElement.html#update_if_pending()">update_if_pending</a>():void</div>
+<a class="signatureLink" href="LayoutElement.html#updateIfPending()">updateIfPending</a>():void</div>
 <div class="summaryTableDescription">
-  Updates if there is a pending update flag set by <code>update()</code>.</div>
+    Updates if there is a pending update flag set by <code>update()</code>.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 <tr class="hideInheritedProtectedMethod">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="LayoutElement.html#update_next()">update_next</a>():void</div>
+<a class="signatureLink" href="LayoutElement.html#updateNext()">updateNext</a>():void</div>
 <div class="summaryTableDescription">
-  Sets an internal flag indicating that the element needs to update on the
-  next render.</div>
+    Sets an internal flag indicating that the element needs to update on the
+    next render.</div>
 </td><td class="summaryTableOwnerCol"><a href="LayoutElement.html">LayoutElement</a></td>
 </tr>
 </table>
@@ -276,98 +286,69 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
-<a name="content_height"></a>
+<a name="contentHeight"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">content_height</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">contentHeight</td><td class="detailHeaderType">property</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>content_height:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The calculated height of the contained elements.
-  </p><span class="label">Implementation</span>
+<code>contentHeight:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The calculated height of the contained elements.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get content_height():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get contentHeight():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set content_height(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set contentHeight(value:Number):void</code>
 <br>
 </div>
-<a name="content_width"></a>
+<a name="contentWidth"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">content_width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">contentWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>content_width:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The calculated width of the contained elements.
-  </p><span class="label">Implementation</span>
+<code>contentWidth:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The calculated width of the contained elements.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get content_width():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get contentWidth():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set content_width(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set contentWidth(value:Number):void</code>
 <br>
 </div>
-<a name="horizontal_spacing"></a>
+<a name="horizontalSpacing"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">horizontal_spacing</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">horizontalSpacing</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>horizontal_spacing:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The amount of space in pixels to be placed horizontally between elements.
-    </p><p>The default value is <code>0</code>.</p>
+<code>horizontalSpacing:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The amount of space in pixels to be placed horizontally between elements.
+        </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get horizontal_spacing():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get horizontalSpacing():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set horizontal_spacing(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set horizontalSpacing(value:Number):void</code>
 <br>
 </div>
-<a name="layout_delegate"></a>
+<a name="layoutChildren"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">layout_delegate</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">layoutChildren</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>layout_delegate:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a></code>&nbsp;&nbsp;[read-write]<p>
-  The layout delegate responsible for this container.
-  
-  </p><span class="label">Implementation</span>
+<code>layoutChildren:Array</code>&nbsp;&nbsp;[read-only]<p>
+    An array of all the children in this container that subclass
+    LayoutElement.
+    
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get layout_delegate():<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a></code>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set layout_delegate(value:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>):void</code>
-<br>
-<p>
-<span class="label">See also</span>
-</p>
-<div class="seeAlso">
-<a href="layout_delegates/ILayoutDelegate.html" target="">ILayoutDelegate</a>
-<br>
-<a href="layout_delegates/FreeLayoutDelegate.html" target="">FreeLayoutDelegate</a>
-<br>
-<a href="layout_delegates/HorizontalLayoutDelegate.html" target="">HorizontalLayoutDelegate</a>
-<br>
-<a href="layout_delegates/VerticalLayoutDelegate.html" target="">VerticalLayoutDelegate</a>
-</div>
-</div>
-<a name="layout_element_children"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">layout_element_children</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>layout_element_children:Array</code>&nbsp;&nbsp;[read-only]<p>
-  An array of all the children in this container that subclass
-  LayoutElement.
-  
-  </p><span class="label">Implementation</span>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get layout_element_children():Array</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get layoutChildren():Array</code>
 <br>
 <p>
 <span class="label">See also</span>
@@ -376,57 +357,78 @@ showHideInherited();
 <a href="../lhasa/LayoutElement.html" target="">LayoutElement</a>
 </div>
 </div>
-<a name="size_to_content_height"></a>
+<a name="layoutDelegate"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">size_to_content_height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">layoutDelegate</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>size_to_content_height:Boolean</code>&nbsp;&nbsp;[read-write]<p>
-  Indicates whether or not this container should resize itself to match the
-  height of its contained elements.
-    </p><p>The default value is <code>false</code>.</p>
+<code>layoutDelegate:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a></code>&nbsp;&nbsp;[read-write]<p>
+    The layout delegate responsible for this container.
+    
+    </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get layoutDelegate():<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set layoutDelegate(value:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>):void</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">ILayoutDelegate<br>FreeLayoutDelegate<br>HorizontalLayoutDelegate<br>VerticalLayoutDelegate</div>
+</div>
+<a name="sizeToContentHeight"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sizeToContentHeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>sizeToContentHeight:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+    Indicates whether or not this container should resize itself to match the
+    height of its contained elements.
+        </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get size_to_content_height():Boolean</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get sizeToContentHeight():Boolean</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set size_to_content_height(value:Boolean):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set sizeToContentHeight(value:Boolean):void</code>
 <br>
 </div>
-<a name="size_to_content_width"></a>
+<a name="sizeToContentWidth"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">size_to_content_width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">sizeToContentWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>size_to_content_width:Boolean</code>&nbsp;&nbsp;[read-write]<p>
-  Indicates whether or not this container should resize itself to match the
-  width of its contained elements.
-    </p><p>The default value is <code>false</code>.</p>
+<code>sizeToContentWidth:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+    Indicates whether or not this container should resize itself to match the
+    width of its contained elements.
+        </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get size_to_content_width():Boolean</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get sizeToContentWidth():Boolean</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set size_to_content_width(value:Boolean):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set sizeToContentWidth(value:Boolean):void</code>
 <br>
 </div>
-<a name="vertical_spacing"></a>
+<a name="verticalSpacing"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">vertical_spacing</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">verticalSpacing</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>vertical_spacing:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The amount of space in pixels to be placed vertically between elements.
-    </p><p>The default value is <code>0</code>.</p>
+<code>verticalSpacing:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The amount of space in pixels to be placed vertically between elements.
+        </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get vertical_spacing():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get verticalSpacing():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set vertical_spacing(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set verticalSpacing(value:Number):void</code>
 <br>
 </div>
 <a name="constructorDetail"></a>
@@ -438,24 +440,22 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function LayoutContainer(layout_delegate:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>)</code><p>
-  Creates a new LayoutContainer.
-  
-  </p><span class="label">Parameters</span>
+<code>public function LayoutContainer(layoutDelegate:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a>)</code><p>
+    Creates a new LayoutContainer.
+    
+    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">layout_delegate</span>:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a></code> &mdash; An instance of a class that implements the
-  <code>ILayoutDelegate</code> interface.
-  
-  </td>
+<td width="20px"></td><td><code><span class="label">layoutDelegate</span>:<a href="layout_delegates/ILayoutDelegate.html">ILayoutDelegate</a></code> &mdash; An instance of a class that implements the
+    <code>ILayoutDelegate</code> interface.
+    
+    </td>
 </tr>
 </table>
 <p>
 <span class="label">See also</span>
 </p>
-<div class="seeAlso">
-<a href="layout_delegates/ILayoutDelegate.html" target="">ILayoutDelegate</a>
-</div>
+<div class="seeAlso">ILayoutDelegate</div>
 </div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
@@ -467,9 +467,9 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>protected override function update():void</code><p>
-  Updates this element then invokes the layout delegate to operate on the
-  children.
-  </p></div>
+    Updates this element then invokes the layout delegate to operate on the
+    children.
+    </p></div>
 <br>
 <br>
 <hr>

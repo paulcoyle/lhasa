@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="LayoutElement,com.paulcoyle.lhasa.LayoutElement,align_horizontal,align_vertical,defined_height,defined_height_fixed,defined_width,defined_width_fixed,inner_height,inner_offset,inner_width,margin,padded_height,padded_offset,padded_width,padding,total_height,total_width,dispatch_layout_invalidated,update,update_if_pending,update_next" name="keywords">
+<meta content="LayoutElement,com.paulcoyle.lhasa.LayoutElement,alignHorizontal,alignVertical,definedHeight,definedHeightFixed,definedWidth,definedWidthFixed,innerHeight,innerOffset,innerRect,innerWidth,margin,paddedHeight,paddedOffset,paddedRect,paddedWidth,padding,totalHeight,totalWidth,dispatchLayoutInvalidated,update,updateIfPending,updateNext" name="keywords">
 <title>com.paulcoyle.lhasa.LayoutElement</title>
 </head>
 <body>
@@ -45,8 +45,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
- Base class for all layout elements.
-  <p></p>
+  Base class for all layout elements.
+    <p></p>
 <br>
 <hr>
 </div>
@@ -58,89 +58,99 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#align_horizontal">align_horizontal</a> : uint<div class="summaryTableDescription">
-  The horizontal alignment for the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#alignHorizontal">alignHorizontal</a> : uint<div class="summaryTableDescription">
+    The horizontal alignment for the element.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#align_vertical">align_vertical</a> : uint<div class="summaryTableDescription">
-  The vertical alignment for the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#alignVertical">alignVertical</a> : uint<div class="summaryTableDescription">
+    The vertical alignment for the element.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defined_height">defined_height</a> : Number<div class="summaryTableDescription">
-  The declared width that this element should be.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#definedHeight">definedHeight</a> : Number<div class="summaryTableDescription">
+    The declared width that this element should be.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defined_height_fixed">defined_height_fixed</a> : Boolean<div class="summaryTableDescription">
-  Indicates whether or not the value for <code>defined_height</code> should
-  be treated as a fixed or variable value.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#definedHeightFixed">definedHeightFixed</a> : Boolean<div class="summaryTableDescription">
+    Indicates whether or not the value for <code>definedHeight</code> should
+    be treated as a fixed or variable value.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defined_width">defined_width</a> : Number<div class="summaryTableDescription">
-  The declared width that this element should be.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#definedWidth">definedWidth</a> : Number<div class="summaryTableDescription">
+    The declared width that this element should be.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defined_width_fixed">defined_width_fixed</a> : Boolean<div class="summaryTableDescription">
-  Indicates whether or not the value for <code>defined_width</code> should
-  be treated as a fixed or variable value.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#definedWidthFixed">definedWidthFixed</a> : Boolean<div class="summaryTableDescription">
+    Indicates whether or not the value for <code>definedWidth</code> should
+    be treated as a fixed or variable value.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#inner_height">inner_height</a> : Number<div class="summaryTableDescription">
-  Defines the height of the element without margins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#innerHeight">innerHeight</a> : Number<div class="summaryTableDescription">
+    Defines the height of the element without margins.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#inner_offset">inner_offset</a> : Point<div class="summaryTableDescription">[read-only]
-  Defines the local coordinates that represent the top left corner of the
-  element where the inner area (without margin) begins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#innerOffset">innerOffset</a> : Point<div class="summaryTableDescription">[read-only]
+    Defines the local coordinates that represent the top left corner of the
+    element where the inner area (without margin) begins.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#inner_width">inner_width</a> : Number<div class="summaryTableDescription">
-  Defines the width of the element without margins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#innerRect">innerRect</a> : Rectangle<div class="summaryTableDescription">[read-only]
+    Returns a Rectangle representing the inner area.</div>
+</td><td class="summaryTableOwnerCol">LayoutElement</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#innerWidth">innerWidth</a> : Number<div class="summaryTableDescription">
+    Defines the width of the element without margins.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#margin">margin</a> : <a href="types/Box.html">Box</a>
 <div class="summaryTableDescription">[read-only]
-  The margin values for this element.</div>
+    The margin values for this element.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#padded_height">padded_height</a> : Number<div class="summaryTableDescription">
-  Defines the height of the element without margins and with padding.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#paddedHeight">paddedHeight</a> : Number<div class="summaryTableDescription">
+    Defines the height of the element without margins and with padding.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#padded_offset">padded_offset</a> : Point<div class="summaryTableDescription">[read-only]
-  Defines the local coordinates that represent the top left corner of the
-  element where the padded area (without margin and with padding) begins.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#paddedOffset">paddedOffset</a> : Point<div class="summaryTableDescription">[read-only]
+    Defines the local coordinates that represent the top left corner of the
+    element where the padded area (without margin and with padding) begins.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#padded_width">padded_width</a> : Number<div class="summaryTableDescription">
-  Defines the width of the element without margins and with padding.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#paddedRect">paddedRect</a> : Rectangle<div class="summaryTableDescription">[read-only]
+    Returns a Rectangle representing the padded area.</div>
+</td><td class="summaryTableOwnerCol">LayoutElement</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#paddedWidth">paddedWidth</a> : Number<div class="summaryTableDescription">
+    Defines the width of the element without margins and with padding.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#padding">padding</a> : <a href="types/Box.html">Box</a>
 <div class="summaryTableDescription">[read-only]
-  The padding values for this element.</div>
+    The padding values for this element.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#total_height">total_height</a> : Number<div class="summaryTableDescription">
-  The total height assigned <em>to</em> the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#totalHeight">totalHeight</a> : Number<div class="summaryTableDescription">
+    The total height assigned <em>to</em> the element.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#total_width">total_width</a> : Number<div class="summaryTableDescription">
-  The total width assigned <em>to</em> the element.</div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#totalWidth">totalWidth</a> : Number<div class="summaryTableDescription">
+    The total width assigned <em>to</em> the element.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 </table>
@@ -157,7 +167,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#LayoutElement()">LayoutElement</a>()</div>
 <div class="summaryTableDescription">
-  Creates a new LayoutElement.</div>
+    Creates a new LayoutElement.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 </table>
@@ -172,9 +182,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#dispatch_layout_invalidated()">dispatch_layout_invalidated</a>():void</div>
+<a class="signatureLink" href="#dispatchLayoutInvalidated()">dispatchLayoutInvalidated</a>():void</div>
 <div class="summaryTableDescription">
-  Dispatches a LayoutElementEvent.INVALIDATED event.</div>
+    Dispatches a LayoutElementEvent.INVALIDATED event.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
@@ -182,26 +192,26 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#update()">update</a>():void</div>
 <div class="summaryTableDescription">
-  Called after the stage has been invalidated due to a call to
-  <code>update_next()</code> which indicates that a value that could
-  warrant a graphical update has changed.</div>
+    Called after the stage has been invalidated due to a call to
+    <code>updateNext()</code> which indicates that a value that could
+    warrant a graphical update has changed.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#update_if_pending()">update_if_pending</a>():void</div>
+<a class="signatureLink" href="#updateIfPending()">updateIfPending</a>():void</div>
 <div class="summaryTableDescription">
-  Updates if there is a pending update flag set by <code>update()</code>.</div>
+    Updates if there is a pending update flag set by <code>update()</code>.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#update_next()">update_next</a>():void</div>
+<a class="signatureLink" href="#updateNext()">updateNext</a>():void</div>
 <div class="summaryTableDescription">
-  Sets an internal flag indicating that the element needs to update on the
-  next render.</div>
+    Sets an internal flag indicating that the element needs to update on the
+    next render.</div>
 </td><td class="summaryTableOwnerCol">LayoutElement</td>
 </tr>
 </table>
@@ -213,21 +223,21 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
-<a name="align_horizontal"></a>
+<a name="alignHorizontal"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">align_horizontal</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">alignHorizontal</td><td class="detailHeaderType">property</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>align_horizontal:uint</code>&nbsp;&nbsp;[read-write]<p>
-  The horizontal alignment for the element.
-    </p><p>The default value is <code>0 (MIDDLE)</code>.</p>
+<code>alignHorizontal:uint</code>&nbsp;&nbsp;[read-write]<p>
+    The horizontal alignment for the element.
+        </p><p>The default value is <code>0 (MIDDLE)</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get align_horizontal():uint</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get alignHorizontal():uint</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set align_horizontal(value:uint):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set alignHorizontal(value:uint):void</code>
 <br>
 <p>
 <span class="label">See also</span>
@@ -236,21 +246,21 @@ showHideInherited();
 <a href="types/Align.html" target="">com.paulcoyle.lhasa.types.Align</a>
 </div>
 </div>
-<a name="align_vertical"></a>
+<a name="alignVertical"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">align_vertical</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">alignVertical</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>align_vertical:uint</code>&nbsp;&nbsp;[read-write]<p>
-  The vertical alignment for the element.
-    </p><p>The default value is <code>0 (MIDDLE)</code>.</p>
+<code>alignVertical:uint</code>&nbsp;&nbsp;[read-write]<p>
+    The vertical alignment for the element.
+        </p><p>The default value is <code>0 (MIDDLE)</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get align_vertical():uint</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get alignVertical():uint</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set align_vertical(value:uint):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set alignVertical(value:uint):void</code>
 <br>
 <p>
 <span class="label">See also</span>
@@ -259,171 +269,185 @@ showHideInherited();
 <a href="types/Align.html" target="">com.paulcoyle.lhasa.types.Align</a>
 </div>
 </div>
-<a name="defined_height"></a>
+<a name="definedHeight"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">defined_height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">definedHeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>defined_height:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The declared width that this element should be.  Works in concert with
-  the <code>defined_width_fixed</code> property.  For details on how to set
-  values textually see the definition for <code><a href="#defined_width">defined_width</a></code>.
-    </p><p>The default value is <code>1</code>.</p>
+<code>definedHeight:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The declared width that this element should be.  Works in concert with
+    the <code>definedWidthFixed</code> property.  For details on how to set
+    values textually see the definition for <code><a href="#definedWidth">definedWidth</a></code>.
+        </p><p>The default value is <code>1</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defined_height():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get definedHeight():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defined_height(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set definedHeight(value:Number):void</code>
 <br>
 <p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#defined_height_fixed" target="">defined_height_fixed</a>
+<a href="../lhasa/LayoutElement.html#definedHeightFixed" target="">definedHeightFixed</a>
 </div>
 </div>
-<a name="defined_height_fixed"></a>
+<a name="definedHeightFixed"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">defined_height_fixed</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">definedHeightFixed</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>defined_height_fixed:Boolean</code>&nbsp;&nbsp;[read-write]<p>
-  Indicates whether or not the value for <code>defined_height</code> should
-  be treated as a fixed or variable value.
-    </p><p>The default value is <code>false</code>.</p>
+<code>definedHeightFixed:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+    Indicates whether or not the value for <code>definedHeight</code> should
+    be treated as a fixed or variable value.
+        </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defined_height_fixed():Boolean</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get definedHeightFixed():Boolean</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defined_height_fixed(value:Boolean):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set definedHeightFixed(value:Boolean):void</code>
 <br>
 <p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#defined_height" target="">defined_height</a>
+<a href="../lhasa/LayoutElement.html#definedHeight" target="">definedHeight</a>
 </div>
 </div>
-<a name="defined_width"></a>
+<a name="definedWidth"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">defined_width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">definedWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>defined_width:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The declared width that this element should be.  Works in concert with
-  the <code>defined_width_fixed</code> property.
-    </p><p>This property can be set in two separate ways: numerically and
-  textually.  Setting the value numerically will simply set the value and
-  dispatch an event.  By passing a string to this property both the values
-  for <code>defined_width</code> and <code>defined_width_fixed</code> can
-  be set simultaneously. To set these values textually you may use the
-  formats:
-    <ul>
-      <li>##.##px</li>
-      <li>##.##%</li>
-    </ul></p>
-    <p><span class="label">Example</span>
-     <pre>
-  var element:LayoutElement = new LayoutElement();
-     
-  element.defined_width = '34.5px';
-  trace(element.defined_width, element.defined_width_fixed);// (34.5 true)
-  
-  element.defined_width = '55.123%';
-  trace(element.defined_width, element.defined_width_fixed);// (0.55123 false)
-  </pre>
-    It is important to note that non-fixed values are converted to
-    scalars.
-  </p>
-    <p>The default value is <code>1</code>.</p>
+<code>definedWidth:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The declared width that this element should be.  Works in concert with
+    the <code>definedWidthFixed</code> property.
+        </p><p>This property can be set in two separate ways: numerically and
+    textually.  Setting the value numerically will simply set the value and
+    dispatch an event.  By passing a string to this property both the values
+    for <code>definedWidth</code> and <code>definedWidthFixed</code> can
+    be set simultaneously. To set these values textually you may use the
+    formats:
+      <ul>
+        <li>##.##px</li>
+        <li>##.##%</li>
+      </ul></p>
+        <p><span class="label">Example</span>
+       <pre>
+    var element:LayoutElement = new LayoutElement();
+       
+    element.definedWidth = '34.5px';
+    trace(element.definedWidth, element.definedWidthFixed);// (34.5 true)
+    
+    element.definedWidth = '55.123%';
+    trace(element.definedWidth, element.definedWidthFixed);// (0.55123 false)
+    </pre>
+      It is important to note that non-fixed values are converted to
+      scalars.
+    </p>
+        <p>The default value is <code>1</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defined_width():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get definedWidth():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defined_width(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set definedWidth(value:Number):void</code>
 <br>
 <p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#defined_width_fixed" target="">defined_width_fixed</a>
+<a href="../lhasa/LayoutElement.html#definedWidthFixed" target="">definedWidthFixed</a>
 </div>
 </div>
-<a name="defined_width_fixed"></a>
+<a name="definedWidthFixed"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">defined_width_fixed</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">definedWidthFixed</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>defined_width_fixed:Boolean</code>&nbsp;&nbsp;[read-write]<p>
-  Indicates whether or not the value for <code>defined_width</code> should
-  be treated as a fixed or variable value.
-    </p><p>The default value is <code>false</code>.</p>
+<code>definedWidthFixed:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+    Indicates whether or not the value for <code>definedWidth</code> should
+    be treated as a fixed or variable value.
+        </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defined_width_fixed():Boolean</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get definedWidthFixed():Boolean</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defined_width_fixed(value:Boolean):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set definedWidthFixed(value:Boolean):void</code>
 <br>
 <p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#defined_width" target="">defined_width</a>
+<a href="../lhasa/LayoutElement.html#definedWidth" target="">definedWidth</a>
 </div>
 </div>
-<a name="inner_height"></a>
+<a name="innerHeight"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">inner_height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">innerHeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>inner_height:Number</code>&nbsp;&nbsp;[read-write]<p>
-  Defines the height of the element without margins.
-  </p><span class="label">Implementation</span>
+<code>innerHeight:Number</code>&nbsp;&nbsp;[read-write]<p>
+    Defines the height of the element without margins.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get inner_height():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get innerHeight():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set inner_height(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set innerHeight(value:Number):void</code>
 <br>
 </div>
-<a name="inner_offset"></a>
+<a name="innerOffset"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">inner_offset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">innerOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>inner_offset:Point</code>&nbsp;&nbsp;[read-only]<p>
-  Defines the local coordinates that represent the top left corner of the
-  element where the inner area (without margin) begins.
-  </p><span class="label">Implementation</span>
+<code>innerOffset:Point</code>&nbsp;&nbsp;[read-only]<p>
+    Defines the local coordinates that represent the top left corner of the
+    element where the inner area (without margin) begins.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get inner_offset():Point</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get innerOffset():Point</code>
 <br>
 </div>
-<a name="inner_width"></a>
+<a name="innerRect"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">inner_width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">innerRect</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>inner_width:Number</code>&nbsp;&nbsp;[read-write]<p>
-  Defines the width of the element without margins.
-  </p><span class="label">Implementation</span>
+<code>innerRect:Rectangle</code>&nbsp;&nbsp;[read-only]<p>
+    Returns a Rectangle representing the inner area.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get inner_width():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get innerRect():Rectangle</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set inner_width(value:Number):void</code>
+</div>
+<a name="innerWidth"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">innerWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>innerWidth:Number</code>&nbsp;&nbsp;[read-write]<p>
+    Defines the width of the element without margins.
+    </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get innerWidth():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set innerWidth(value:Number):void</code>
 <br>
 </div>
 <a name="margin"></a>
@@ -434,8 +458,8 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>margin:<a href="types/Box.html">Box</a></code>&nbsp;&nbsp;[read-only]<p>
-  The margin values for this element.
-    </p><span class="label">Implementation</span>
+    The margin values for this element.
+        </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get margin():<a href="types/Box.html">Box</a></code>
 <br>
@@ -446,51 +470,65 @@ showHideInherited();
 <a href="types/Box.html" target="">com.paulcoyle.lhasa.types.Box</a>
 </div>
 </div>
-<a name="padded_height"></a>
+<a name="paddedHeight"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">padded_height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">paddedHeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>padded_height:Number</code>&nbsp;&nbsp;[read-write]<p>
-  Defines the height of the element without margins and with padding.
-  </p><span class="label">Implementation</span>
+<code>paddedHeight:Number</code>&nbsp;&nbsp;[read-write]<p>
+    Defines the height of the element without margins and with padding.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get padded_height():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get paddedHeight():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set padded_height(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set paddedHeight(value:Number):void</code>
 <br>
 </div>
-<a name="padded_offset"></a>
+<a name="paddedOffset"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">padded_offset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">paddedOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>padded_offset:Point</code>&nbsp;&nbsp;[read-only]<p>
-  Defines the local coordinates that represent the top left corner of the
-  element where the padded area (without margin and with padding) begins.
-  </p><span class="label">Implementation</span>
+<code>paddedOffset:Point</code>&nbsp;&nbsp;[read-only]<p>
+    Defines the local coordinates that represent the top left corner of the
+    element where the padded area (without margin and with padding) begins.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get padded_offset():Point</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get paddedOffset():Point</code>
 <br>
 </div>
-<a name="padded_width"></a>
+<a name="paddedRect"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">padded_width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">paddedRect</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>padded_width:Number</code>&nbsp;&nbsp;[read-write]<p>
-  Defines the width of the element without margins and with padding.
-  </p><span class="label">Implementation</span>
+<code>paddedRect:Rectangle</code>&nbsp;&nbsp;[read-only]<p>
+    Returns a Rectangle representing the padded area.
+    </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get padded_width():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get paddedRect():Rectangle</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set padded_width(value:Number):void</code>
+</div>
+<a name="paddedWidth"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">paddedWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>paddedWidth:Number</code>&nbsp;&nbsp;[read-write]<p>
+    Defines the width of the element without margins and with padding.
+    </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get paddedWidth():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set paddedWidth(value:Number):void</code>
 <br>
 </div>
 <a name="padding"></a>
@@ -501,8 +539,8 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>padding:<a href="types/Box.html">Box</a></code>&nbsp;&nbsp;[read-only]<p>
-  The padding values for this element.
-    </p><span class="label">Implementation</span>
+    The padding values for this element.
+        </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get padding():<a href="types/Box.html">Box</a></code>
 <br>
@@ -513,68 +551,68 @@ showHideInherited();
 <a href="types/Box.html" target="">com.paulcoyle.lhasa.types.Box</a>
 </div>
 </div>
-<a name="total_height"></a>
+<a name="totalHeight"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">total_height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">totalHeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>total_height:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The total height assigned <em>to</em> the element.  This is usually set by
-  the element container's layout delegate.  This values affects the values
-  for: <code>inner_offset</code>, <code>inner_height</code>,
-  <code>padded_height</code> and <code>padded_height</code>.
-    </p><p>The default value is <code>0</code>.</p>
+<code>totalHeight:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The total height assigned <em>to</em> the element.  This is usually set by
+    the element container's layout delegate.  This values affects the values
+    for: <code>innerOffset</code>, <code>innerHeight</code>,
+    <code>paddedHeight</code> and <code>paddedHeight</code>.
+        </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get total_height():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get totalHeight():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set total_height(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set totalHeight(value:Number):void</code>
 <br>
 <p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#inner_offset" target="">inner_offset</a>
+<a href="../lhasa/LayoutElement.html#innerOffset" target="">innerOffset</a>
 <br>
-<a href="../lhasa/LayoutElement.html#inner_height" target="">inner_height</a>
+<a href="../lhasa/LayoutElement.html#innerHeight" target="">innerHeight</a>
 <br>
-<a href="../lhasa/LayoutElement.html#padded_offset" target="">padded_offset</a>
+<a href="../lhasa/LayoutElement.html#paddedOffset" target="">paddedOffset</a>
 <br>
-<a href="../lhasa/LayoutElement.html#padded_height" target="">padded_height</a>
+<a href="../lhasa/LayoutElement.html#paddedHeight" target="">paddedHeight</a>
 </div>
 </div>
-<a name="total_width"></a>
+<a name="totalWidth"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">total_width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">totalWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>total_width:Number</code>&nbsp;&nbsp;[read-write]<p>
-  The total width assigned <em>to</em> the element.  This is usually set by
-  the element container's layout delegate.  This values affects the values
-  for: <code>inner_offset</code>, <code>inner_width</code>,
-  <code>padded_offset</code> and <code>padded_width</code>.
-    </p><p>The default value is <code>0</code>.</p>
+<code>totalWidth:Number</code>&nbsp;&nbsp;[read-write]<p>
+    The total width assigned <em>to</em> the element.  This is usually set by
+    the element container's layout delegate.  This values affects the values
+    for: <code>innerOffset</code>, <code>innerWidth</code>,
+    <code>paddedOffset</code> and <code>paddedWidth</code>.
+        </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get total_width():Number</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get totalWidth():Number</code>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set total_width(value:Number):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set totalWidth(value:Number):void</code>
 <br>
 <p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#inner_offset" target="">inner_offset</a>
+<a href="../lhasa/LayoutElement.html#innerOffset" target="">innerOffset</a>
 <br>
-<a href="../lhasa/LayoutElement.html#inner_width" target="">inner_width</a>
+<a href="../lhasa/LayoutElement.html#innerWidth" target="">innerWidth</a>
 <br>
-<a href="../lhasa/LayoutElement.html#padded_offset" target="">padded_offset</a>
+<a href="../lhasa/LayoutElement.html#paddedOffset" target="">paddedOffset</a>
 <br>
-<a href="../lhasa/LayoutElement.html#padded_width" target="">padded_width</a>
+<a href="../lhasa/LayoutElement.html#paddedWidth" target="">paddedWidth</a>
 </div>
 </div>
 <a name="constructorDetail"></a>
@@ -587,20 +625,20 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function LayoutElement()</code><p>
-  Creates a new LayoutElement.
-  </p></div>
+    Creates a new LayoutElement.
+    </p></div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
-<a name="dispatch_layout_invalidated()"></a>
+<a name="dispatchLayoutInvalidated()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">dispatch_layout_invalidated</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+<td class="detailHeaderName">dispatchLayoutInvalidated</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>protected function dispatch_layout_invalidated():void</code><p>
-  Dispatches a LayoutElementEvent.INVALIDATED event.
-  </p></div>
+<code>protected function dispatchLayoutInvalidated():void</code><p>
+    Dispatches a LayoutElementEvent.INVALIDATED event.
+    </p></div>
 <a name="update()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -609,48 +647,48 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>protected function update():void</code><p>
-  Called after the stage has been invalidated due to a call to
-  <code>update_next()</code> which indicates that a value that could
-  warrant a graphical update has changed.
-    </p><p>
+    Called after the stage has been invalidated due to a call to
+    <code>updateNext()</code> which indicates that a value that could
+    warrant a graphical update has changed.
+        </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
-<a href="../lhasa/LayoutElement.html#update_next()" target="">update_next()</a>
+<a href="../lhasa/LayoutElement.html#updateNext()" target="">updateNext()</a>
 </div>
 </div>
-<a name="update_if_pending()"></a>
+<a name="updateIfPending()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">update_if_pending</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">updateIfPending</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>protected function update_if_pending():void</code><p>
-  Updates if there is a pending update flag set by <code>update()</code>.
-    </p><p>
+<code>protected function updateIfPending():void</code><p>
+    Updates if there is a pending update flag set by <code>update()</code>.
+        </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
 <a href="../lhasa/LayoutElement.html#update()" target="">update()</a>
 <br>
-<a href="../lhasa/LayoutElement.html#update_next()" target="">update_next()</a>
+<a href="../lhasa/LayoutElement.html#updateNext()" target="">updateNext()</a>
 </div>
 </div>
-<a name="update_next()"></a>
+<a name="updateNext()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">update_next</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">updateNext</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>protected function update_next():void</code><p>
-  Sets an internal flag indicating that the element needs to update on the
-  next render.  We use the <code>ENTER_FRAME</code> event to trigger renders
-  since the <code>RENDER</code> event is unreliable
-  (see <a href="http://www.actionscript.org/forums/archive/index.php3/t-143158.html">
-  this forum post for details</a>).
-    </p><p>
+<code>protected function updateNext():void</code><p>
+    Sets an internal flag indicating that the element needs to update on the
+    next render.  We use the <code>ENTER_FRAME</code> event to trigger renders
+    since the <code>RENDER</code> event is unreliable
+    (see <a href="http://www.actionscript.org/forums/archive/index.php3/t-143158.html">
+    this forum post for details</a>).
+        </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
