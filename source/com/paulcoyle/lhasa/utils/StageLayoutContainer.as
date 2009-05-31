@@ -29,7 +29,7 @@ package com.paulcoyle.lhasa.utils {
   import flash.events.Event;
   
   /**
-  * A container that manages its own total_width and total_height to match that
+  * A container that manages its own totalWidth and totalHeight to match that
   * of the stage.  Your application class should extend this class and invoke
   * <code>super()</code> immediately in the constructor.  This class defaults to
   * using the <code>FreeLayoutDelegate</code> so that subsequent containers can
@@ -46,31 +46,32 @@ package com.paulcoyle.lhasa.utils {
     * @param layout_delegate A layout delegate to be used for this container.
     * Defaults to the FreeLayoutDelegate.
     */
-    public function StageLayoutContainer(layout_delegate:ILayoutDelegate = null) {
-      super((layout_delegate == null) ? new FreeLayoutDelegate() : layout_delegate);
+    public function StageLayoutContainer(layoutDelegate:ILayoutDelegate = null) {
+      super((layoutDelegate == null) ? new FreeLayoutDelegate() : layoutDelegate);
       
       stage.align = StageAlign.TOP_LEFT;
       stage.scaleMode = StageScaleMode.NO_SCALE;
       
-      update_metrics_from_stage();
+      updateMetricsFromStage();
       
-      stage.addEventListener(Event.RESIZE, on_stage_resize, false, 0, true);
+      stage.addEventListener(Event.RESIZE, onStageResize, false, 0, true);
+    }
+    
+    // PROTECTED
+    /**
+    * Resizes this container to match the stage.
+    */
+    protected function updateMetricsFromStage():void {
+      totalWidth = stage.stageWidth;
+      totalHeight = stage.stageHeight;
     }
     
     // PRIVATE
     /**
     * Handles the stage resizing.
     */
-    private function on_stage_resize(event:Event):void {
-      update_metrics_from_stage();
-    }
-    
-    /**
-    * Resizes this container to match the stage.
-    */
-    private function update_metrics_from_stage():void {
-      total_width = stage.stageWidth;
-      total_height = stage.stageHeight;
+    private function onStageResize(event:Event):void {
+      updateMetricsFromStage();
     }
   }
 }
