@@ -36,6 +36,6 @@ package com.paulcoyle.lhasa.layout_delegates {
 		*
 		* @see com.paulcoyle.lhasa.LayoutContainer LayoutContainer
 		*/
-    function perform_layout(container:LayoutContainer):void;
+    function performLayout(container:LayoutContainer):void;
   }
 }

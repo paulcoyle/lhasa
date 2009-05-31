@@ -26,85 +26,85 @@ package com.paulcoyle.lhasa.layout_delegates {
   
 	/**
 	* Arranges its LayoutElement children horizontally.  This delegate honours
-	* the <code>align_vertical</code> attribute on the LayoutElements
+	* the <code>alignVertical</code> attribute on the LayoutElements
 	* it arranges positioning them relative to the container's height.
 	*
 	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
 	*
 	* @see com.paulcoyle.lhasa.LayoutElement LayoutElement
-	* @see com.paulcoyle.lhasa.LayoutElement#align_vertical LayoutElement.align_vertical
+	* @see com.paulcoyle.lhasa.LayoutElement#alignVertical LayoutElement.alignVertical
 	*/
 	public class VerticalLayoutDelegate implements ILayoutDelegate {
 		// PUBLIC
 		/**
 		* @inheritDoc
 		*/
-		public function perform_layout(container:LayoutContainer):void {
+		public function performLayout(container:LayoutContainer):void {
 			// Find the total fixed height and the total relative height
-			var children:Array = container.layout_element_children;
-			var total_fixed_height:Number = container.vertical_spacing * (children.length - 1);
-			var total_relative_height:Number = 0;// Sum of scalars
+			var children:Array = container.layoutChildren;
+			var totalFixedHeight:Number = container.verticalSpacing * (children.length - 1);
+			var totalRelativeHeight:Number = 0;// Sum of scalars
 			var child:LayoutElement;
 			for each (child in children) {
-				if (child.defined_height_fixed) total_fixed_height += child.defined_height;
-				else total_relative_height += child.defined_height;
+				if (child.definedHeightFixed) totalFixedHeight += child.definedHeight;
+				else totalRelativeHeight += child.definedHeight;
 			}
 			
 			// Is there any remaining relative height?
 			var relative_height:Number = 0;// In actual pixels, what remains after fixed values
-			if (container.padded_height > total_fixed_height) relative_height = container.padded_height - total_fixed_height;
+			if (container.paddedHeight > totalFixedHeight) relative_height = container.paddedHeight - totalFixedHeight;
 			
 			// Resize and position children
-			var y_offset:Number = container.padded_offset.y;
-			var total_height:Number = container.vertical_spacing * (children.length - 1);
-			var max_width:Number = 0;
+			var yOffset:Number = container.paddedOffset.y;
+			var totalHeight:Number = container.verticalSpacing * (children.length - 1);
+			var maxWidth:Number = 0;
 			for each (child in children) {
 				// If the child's height is relative calculate it as a percent
 				// of the total divided by all relative elements and set it,
 				// otherwise set its defined height
-				if (!child.defined_height_fixed) child.total_height = relative_height * (child.defined_height / total_relative_height);
-				else child.total_height = child.defined_height;
+				if (!child.definedHeightFixed) child.totalHeight = relative_height * (child.definedHeight / totalRelativeHeight);
+				else child.totalHeight = child.definedHeight;
 				
 				// Add to the total height calculation
-				total_height += child.total_height;
+				totalHeight += child.totalHeight;
 				
 				// If the child's width is relative calculate it as a percent
 				// of the whole of this container's width
-				if (!child.defined_width_fixed) child.total_width = container.padded_width * child.defined_width;
-				else child.total_width = child.defined_width;
+				if (!child.definedWidthFixed) child.totalWidth = container.paddedWidth * child.definedWidth;
+				else child.totalWidth = child.definedWidth;
 				
 				// Set the maxmimum width value
-				max_width = Math.max(max_width, child.total_width);
+				maxWidth = Math.max(maxWidth, child.totalWidth);
 				
 				// Position the child and increment the vertical offset tally
-				child.y = y_offset;
-				y_offset += child.total_height + container.vertical_spacing;
+				child.y = yOffset;
+				yOffset += child.totalHeight + container.verticalSpacing;
 				
 				// Align the child according to its alignment settings
-				switch (child.align_horizontal) {
+				switch (child.alignHorizontal) {
 					case Align.LEFT:
-						child.x = container.padded_offset.x;
+						child.x = container.paddedOffset.x;
 						break;
 					
 					case Align.MIDDLE:
-						child.x = (container.total_width / 2) - (child.total_width / 2);
+						child.x = (container.totalWidth / 2) - (child.totalWidth / 2);
 						break;
 					
 					case Align.RIGHT:
-						child.x = container.total_width - child.total_width - container.margin.right - container.padding.right;
+						child.x = container.totalWidth - child.totalWidth - container.margin.right - container.padding.right;
 						break;
 				}
 			}
 			
-			container.content_width = max_width;
-			container.content_height = total_height;
+			container.contentWidth = maxWidth;
+			container.contentHeight = totalHeight;
 			
-			if (container.size_to_content_width) {
-				container.defined_width = container.content_width + container.padding.horizontal + container.margin.horizontal;
+			if (container.sizeToContentWidth) {
+				container.definedWidth = container.contentWidth + container.padding.horizontal + container.margin.horizontal;
 			}
 			
-			if (container.size_to_content_height) {
-				container.defined_height = container.content_height + container.padding.vertical + container.margin.vertical;
+			if (container.sizeToContentHeight) {
+				container.definedHeight = container.contentHeight + container.padding.vertical + container.margin.vertical;
 			}
 		}
 	}

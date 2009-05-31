@@ -35,17 +35,17 @@ package com.paulcoyle.lhasa.layout_delegates {
 		/**
 		* @inheritDoc
 		*/
-		public function perform_layout(container:LayoutContainer):void {
-		  var children:Array = container.layout_element_children;
+		public function performLayout(container:LayoutContainer):void {
+		  var children:Array = container.layoutChildren;
 		  var child:LayoutElement;
 		  for each (child in children) {
 		    // Set the width
-		    if (child.defined_width_fixed) child.total_width = child.defined_width;
-		    else child.total_width = container.padded_width * child.defined_width;
+		    if (child.definedWidthFixed) child.totalWidth = child.definedWidth;
+		    else child.totalWidth = container.paddedWidth * child.definedWidth;
 		    
 		    // Set the height
-		    if (child.defined_height_fixed) child.total_height = child.defined_height;
-		    else child.total_height = container.padded_height * child.defined_height;
+		    if (child.definedHeightFixed) child.totalHeight = child.definedHeight;
+		    else child.totalHeight = container.paddedHeight * child.definedHeight;
 		  }
 	  }
   }

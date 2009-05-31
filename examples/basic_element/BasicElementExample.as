@@ -49,8 +49,8 @@ package {
       stage.scaleMode = StageScaleMode.NO_SCALE;
       
       _box = new SampleBox();
-      _box.total_width = 200;
-      _box.total_height = 140;
+      _box.totalWidth = 200;
+      _box.totalHeight = 140;
       _box.addEventListener(LayoutElementEvent.UPDATED, on_box_updated, false, 0, true);
       addChild(_box);
       
@@ -63,8 +63,8 @@ package {
     * Handles clicks to the stage.
     */
     private function on_stage_click(event:MouseEvent):void {
-      _box.total_width = Math.random() * (stage.stageWidth - 100) + 100 ;
-      _box.total_height = Math.random() * (stage.stageHeight - 100) + 100;
+      _box.totalWidth = Math.random() * (stage.stageWidth - 100) + 100 ;
+      _box.totalHeight = Math.random() * (stage.stageHeight - 100) + 100;
       _box.margin.all = Math.random() * 20 + 2;
       _box.padding.all = Math.random() * 20 + 2;
     }
@@ -73,8 +73,8 @@ package {
     * Handles the stage resizing.  Fills the stage area.
     */
     private function on_stage_resize(event:Event):void {
-      _box.total_width = stage.stageWidth;
-      _box.total_height = stage.stageHeight;
+      _box.totalWidth = stage.stageWidth;
+      _box.totalHeight = stage.stageHeight;
     }
     
     /**

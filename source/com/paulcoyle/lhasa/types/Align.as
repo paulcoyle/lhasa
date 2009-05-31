@@ -22,12 +22,12 @@
 package com.paulcoyle.lhasa.types {
 	/**
 	* Defines alignment settings on LayoutElements.  Used on the
-	* <code>align_horizontal</code> and <code>align_vertical</code>
+	* <code>alignHorizontal</code> and <code>alignVertical</code>
 	* properties.
 	*
 	* @author Paul Coyle &lt;paul.b.coyle&64;gmail.com&gt;
-	* @see com.paulcoyle.lhasa.LayoutElement#align_vertical LayoutElement.align_vertical
-	* @see com.paulcoyle.lhasa.LayoutElement#align_horizontal LayoutElement.align_horizontal
+	* @see com.paulcoyle.lhasa.LayoutElement#alignVertical LayoutElement.alignVertical
+	* @see com.paulcoyle.lhasa.LayoutElement#alignHorizontal LayoutElement.alignHorizontal
 	*/
 	public class Align {
 	  /**

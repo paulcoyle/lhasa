@@ -47,11 +47,11 @@ package {
       super.update();
       graphics.clear();
       graphics.beginFill(0xff0000, 1);
-      graphics.drawRect(0, 0, total_width, total_height);
+      graphics.drawRect(0, 0, totalWidth, totalHeight);
       graphics.beginFill(0x00ff00, 1);
-      graphics.drawRect(inner_offset.x, inner_offset.y, inner_width, inner_height);
+      graphics.drawRect(innerOffset.x, innerOffset.y, innerWidth, innerHeight);
       graphics.beginFill(0x0000ff, 1);
-      graphics.drawRect(padded_offset.x, padded_offset.y, padded_width, padded_height);
+      graphics.drawRect(paddedOffset.x, paddedOffset.y, paddedWidth, paddedHeight);
     }
   }
 }

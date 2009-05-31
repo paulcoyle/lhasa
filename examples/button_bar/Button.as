@@ -35,8 +35,8 @@ package {
     public function Button() {
       super();
       
-      defined_width = (Math.random() * 48 + 12).toString() + 'px';
-      defined_height = '32px';
+      definedWidth = (Math.random() * 48 + 12).toString() + 'px';
+      definedHeight = '32px';
     }
     
     // PROTECTED
@@ -48,7 +48,7 @@ package {
       
       graphics.clear();
       graphics.beginFill(0xcc6666, 1);
-      graphics.drawRoundRect(inner_offset.x, inner_offset.y, inner_width, inner_height, 8, 8);
+      graphics.drawRoundRect(innerOffset.x, innerOffset.y, innerWidth, innerHeight, 8, 8);
     }
   }
 }

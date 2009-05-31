@@ -36,10 +36,10 @@ package {
     public function Bar() {
       super(new HorizontalLayoutDelegate());
       
-      size_to_content_width = true;
-      size_to_content_height = true;
+      sizeToContentWidth = true;
+      sizeToContentHeight = true;
       
-      horizontal_spacing = vertical_spacing = 5;
+      horizontalSpacing = verticalSpacing = 5;
       margin.all = 5;
       padding.all = 5;
     }
@@ -53,10 +53,10 @@ package {
       
       graphics.clear();
       graphics.beginFill(0, .8);
-      graphics.drawRoundRect(inner_offset.x, inner_offset.y, inner_width, inner_height, 10, 10);
+      graphics.drawRoundRect(innerOffset.x, innerOffset.y, innerWidth, innerHeight, 10, 10);
       graphics.beginFill(0, 1);
-      graphics.drawRoundRect(inner_offset.x, inner_offset.y, inner_width, inner_height, 10, 10);
-      graphics.drawRoundRect(inner_offset.x + 1, inner_offset.y + 1, inner_width - 2, inner_height - 2, 8, 8);
+      graphics.drawRoundRect(innerOffset.x, innerOffset.y, innerWidth, innerHeight, 10, 10);
+      graphics.drawRoundRect(innerOffset.x + 1, innerOffset.y + 1, innerWidth - 2, innerHeight - 2, 8, 8);
     }
   }
 }

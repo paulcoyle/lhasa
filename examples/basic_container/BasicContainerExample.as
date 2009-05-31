@@ -49,8 +49,8 @@ package {
       stage.scaleMode = StageScaleMode.NO_SCALE;
       
       _container = new LayoutContainer(new HorizontalLayoutDelegate());
-      _container.horizontal_spacing = 10;
-      _container.vertical_spacing = 10;
+      _container.horizontalSpacing = 10;
+      _container.verticalSpacing = 10;
       _container.padding.all = 10;
       addChild(_container);
       
@@ -70,8 +70,8 @@ package {
     */
     private function add_box_to_container():void {
       var new_box:SampleBox = new SampleBox();
-          new_box.defined_width = (Math.random() * 28 + 5).toString() + '%';
-          new_box.defined_height = (Math.random() * 28 + 5).toString() + '%';
+          new_box.definedWidth = (Math.random() * 28 + 5).toString() + '%';
+          new_box.definedHeight = (Math.random() * 28 + 5).toString() + '%';
       _container.addChild(new_box);
     }
     
@@ -79,8 +79,8 @@ package {
     * Updates the container to fit the stage.
     */
     private function update_container_size():void {
-      _container.total_width = stage.stageWidth;
-      _container.total_height = stage.stageHeight;
+      _container.totalWidth = stage.stageWidth;
+      _container.totalHeight = stage.stageHeight;
     }
     
     /**
@@ -95,13 +95,13 @@ package {
     */
     private function on_stage_key_down(event:KeyboardEvent):void {
       if (event.keyCode == 86) {
-        _container.horizontal_spacing = Math.random() * 40;
-        _container.vertical_spacing = Math.random() * 40;
+        _container.horizontalSpacing = Math.random() * 40;
+        _container.verticalSpacing = Math.random() * 40;
         _container.layout_delegate = new VerticalLayoutDelegate();
       }
       else if (event.keyCode == 72) {
-        _container.horizontal_spacing = Math.random() * 40;
-        _container.vertical_spacing = Math.random() * 40;
+        _container.horizontalSpacing = Math.random() * 40;
+        _container.verticalSpacing = Math.random() * 40;
         _container.layout_delegate = new HorizontalLayoutDelegate();
       }
     }
